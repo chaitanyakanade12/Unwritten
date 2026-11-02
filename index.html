@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UNWRITTEN</title>
+<meta name="application-name" content="UNWRITTEN">
+<meta name="description" content="UNWRITTEN is a place for daily blogs, sticky notes and printable letters. A companion to your notebook, not a replacement.">
+<meta name="theme-color" content="#FF6A18" id="theme-color">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UNWRITTEN">
+<meta property="og:title" content="UNWRITTEN">
+<meta property="og:description" content="Daily blogs, sticky notes and printable letters. A companion to your notebook.">
+<meta name="twitter:card" content="summary">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<noscript><p style="padding:20px;font:700 1.1rem sans-serif">UNWRITTEN needs JavaScript to run. Please turn it on.</p></noscript>
+<div class="wrap">
+
+  <header class="top">
+    <a class="logo" href="#home" aria-label="UNWRITTEN, home">UNWRITTEN</a>
+    <div class="top-actions">
+      <button class="theme-toggle" id="theme-btn" type="button" aria-label="Switch to dark mode">
+        <span class="theme-icon" id="theme-icon" aria-hidden="true">☾</span>
+      </button>
+      <button class="theme-toggle profile-toggle" id="profile-btn" type="button" aria-label="Profile" data-i18n-aria="profile_open" hidden>
+        <span id="profile-initials" aria-hidden="true">?</span>
+        <img id="profile-photo" alt="" referrerpolicy="no-referrer" hidden>
+      </button>
+      <div class="nav">
+        <button class="navbtn" id="navbtn" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="sr-only">Pages menu. Current page: </span>
+          <span class="navlabel" id="navlabel" data-i18n="nav_home">Home</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <nav class="menu" id="menu" aria-label="Pages">
+          <a class="m-item" href="#home"   data-page="home"   style="--i:0;--c:#FFE761;--r:-1.5deg"><b data-i18n="nav_home">Home</b><span data-i18n="nav_home_sub">Your writing desk</span></a>
+          <a class="m-item" href="#blog"   data-page="blog"   style="--i:1;--c:#8FC0FF;--r:1deg"><b data-i18n="nav_blog">Blog</b><span data-i18n="nav_blog_sub">Tell today's story</span></a>
+          <a class="m-item" href="#notes"  data-page="notes"  style="--i:2;--c:#FFA9B1;--r:1.5deg"><b data-i18n="nav_notes">Sticky Notes</b><span data-i18n="nav_notes_sub">Leave a little thought</span></a>
+          <a class="m-item" href="#letter" data-page="letter" style="--i:3;--c:#B4BDFB;--r:-1deg"><b data-i18n="nav_letter">Letters</b><span data-i18n="nav_letter_sub">Write from the heart</span></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="scrim" id="scrim"></div>
+
+  <main>
+    <!-- HOME -->
+    <section id="page-home" class="page">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1 class="hl" data-i18n="home_hl">Write it down.</h1>
+          <p class="lede" data-i18n="home_lede">Daily blogs, sticky notes and real letters you can print and post. Pick up a pen, or a phone.</p>
+          <p class="scribble">आज काय लिहिणार?</p>
+          <div class="streak" id="streak"></div>
+        </div>
+        <aside class="card prompt" id="prompt-card">
+          <p class="eyebrow" data-i18n="prompt_eyebrow">Today's prompt</p>
+          <p class="ptext" id="prompt-text"></p>
+          <div class="row">
+            <button class="btn" type="button" id="prompt-blog" data-i18n="prompt_blog">Write about it</button>
+            <button class="btn ghost" type="button" id="prompt-next" data-i18n="prompt_next">Another prompt</button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="doors">
+        <a class="door card d-blog" href="#blog" style="--d:0">
+          <span><span class="tag">Daily</span></span>
+          <h3 data-i18n="door_blog_title">Read the blog</h3>
+          <p data-i18n="door_blog_desc">A new post every day. Read it, or write your own.</p>
+          <span class="go" data-i18n="door_open">Open →</span>
+        </a>
+        <a class="door d-notes" href="#notes" style="--d:1">
+          <h3 data-i18n="door_notes_title">Stick a note</h3>
+          <p data-i18n="door_notes_desc">Three lines on a coloured sticky. Put it on the wall.</p>
+          <span class="go" data-i18n="door_open">Open →</span>
+        </a>
+        <a class="door d-letter" href="#letter" style="--d:2">
+          <p data-i18n="door_dear">Dear you,</p>
+          <h3 data-i18n="door_letter_title">Write a letter</h3>
+          <p data-i18n="door_letter_desc">Pick your paper, then print it.</p>
+          <span class="go" data-i18n="door_open">Open →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="page-blog" class="page" hidden>
+      <div class="phead">
+        <div><h1 class="ptitle" data-i18n="blog_title">The Daily Blog</h1><p class="psub" data-i18n="blog_sub">One post a day. Read, or write your own.</p></div>
+        <p class="scribble">रोज थोडं लिहा</p>
+      </div>
+
+      <div id="blog-list">
+        <div class="bar">
+          <button class="btn" id="post-toggle" type="button" aria-expanded="false" aria-controls="post-form" data-i18n="write_today">Write today's post</button>
+          <label class="search"><span class="sr-only">Search posts</span><input id="q" type="search" placeholder="Search posts" data-i18n-ph="search_placeholder" autocomplete="off"></label>
+        </div>
+
+        <form class="card stack" id="post-form" hidden>
+          <h2 class="form-title" id="composer-title" data-i18n="write_today">Write today's post</h2>
+          <div class="field"><label for="p-title" data-i18n="label_title">Title</label><input id="p-title" type="text" maxlength="80" placeholder="What is today's post about?" data-i18n-ph="title_placeholder" autocomplete="off"></div>
+          <div class="field"><label for="p-tag" data-i18n="label_topic">Topic</label>
+            <select id="p-tag">
+              <option value="journal">Journal</option>
+              <option value="letters">Letters</option>
+              <option value="ideas">Ideas</option>
+              <option value="notes">Notes</option>
+            </select>
+          </div>
+          <div class="field"><label for="p-body" data-i18n="label_post">Post</label><textarea id="p-body" rows="9" placeholder="Write until the tea gets cold. Leave a blank line between paragraphs." data-i18n-ph="post_placeholder"></textarea></div>
+          <p class="note-small" id="p-count">0 words</p>
+          <div class="row">
+            <button class="btn" type="submit" id="p-submit" data-i18n="publish_btn">Publish post</button>
+            <button class="btn ghost" type="button" id="post-cancel" data-i18n="close_btn">Close</button>
+          </div>
+          <p class="note-small" data-i18n="draft_saved_hint">Your draft is saved on this device as you type.</p>
+        </form>
+
+        <div class="filters" id="filters" role="group" aria-label="Filter posts"></div>
+        <p class="count" id="post-count" aria-live="polite"></p>
+        <div class="posts" id="posts"></div>
+      </div>
+
+      <article class="card reader" id="blog-reader" hidden></article>
+    </section>
+
+    <!-- NOTES -->
+    <section id="page-notes" class="page" hidden>
+      <div class="phead">
+        <div><h1 class="ptitle" data-i18n="notes_title">Sticky Notes</h1><p class="psub" data-i18n="notes_sub">Three lines are enough.</p></div>
+        <p class="scribble">कुणाला तरी आनंद द्या</p>
+      </div>
+
+      <form class="card noter stack" id="note-form">
+        <div class="field"><label for="n-text" data-i18n="note_label">Your note</label><textarea id="n-text" rows="3" maxlength="140" placeholder="Say something kind, funny or true." data-i18n-ph="note_placeholder"></textarea></div>
+        <div class="two">
+          <div class="field"><label for="n-from" data-i18n="signed_label">Signed</label><input id="n-from" type="text" maxlength="24" placeholder="Your name (optional)" data-i18n-ph="signed_placeholder" autocomplete="off"></div>
+          <div class="field"><span class="flabel" id="n-color-label" data-i18n="colour_label">Colour</span><div class="swatches" id="n-swatches" role="radiogroup" aria-labelledby="n-color-label"></div></div>
+        </div>
+        <div class="row">
+          <button class="btn" type="submit" id="n-go" data-i18n="stick_it_btn" disabled>Stick it</button>
+          <span class="counter" id="n-count">0 / 140</span>
+        </div>
+      </form>
+
+      <p class="hint" data-i18n="notes_hint" data-i18n-html>The first four are examples. Delete them or add your own. Tap <b>Save image</b> on a note for a 3000 × 3000 PNG.</p>
+      <div class="wall" id="wall"></div>
+    </section>
+
+    <!-- LETTER -->
+    <section id="page-letter" class="page" hidden>
+      <div class="phead">
+        <div><h1 class="ptitle" data-i18n="letter_title">Write a Letter</h1><p class="psub" data-i18n="letter_sub">Pick your paper, write it out, print it.</p></div>
+        <p class="scribble">मनापासून लिहा</p>
+      </div>
+
+      <div class="letter-grid">
+        <form class="card stack" id="letter-form" onsubmit="return false">
+          <div class="field"><span class="flabel" id="l-theme-label" data-i18n="occasion_label">Occasion</span><div class="chips" id="l-theme" role="group" aria-labelledby="l-theme-label"></div></div>
+          <div class="starter">
+            <span aria-hidden="true">💡</span>
+            <button class="chip" type="button" id="starter-btn"></button>
+            <button class="mini" type="button" id="starter-next" data-i18n-aria="starter_next" aria-label="Another start">↻</button>
+          </div>
+          <div class="field"><label for="l-greet" data-i18n="greet_label">To</label><input id="l-greet" type="text" maxlength="60" autocomplete="off"></div>
+          <div class="field"><label for="l-body" data-i18n="letter_body_label">Your letter</label><textarea id="l-body" rows="8" maxlength="8000" placeholder="Start with what you really want to say." data-i18n-ph="letter_placeholder"></textarea></div>
+          <p class="note-small" id="l-count" aria-live="off"></p>
+          <div class="two">
+            <div class="field"><label for="l-sign" data-i18n="sign_label">Sign-off</label><input id="l-sign" type="text" maxlength="40" autocomplete="off"></div>
+            <div class="field"><label for="l-from" data-i18n="from_label">Your name</label><input id="l-from" type="text" maxlength="40" autocomplete="off"></div>
+          </div>
+          <details class="opts">
+            <summary data-i18n="page_options">Page options</summary>
+            <div class="stack">
+              <div class="field"><span class="flabel" id="l-paper-label" data-i18n="paper_label">Paper</span><div class="swatches paper-swatches" id="l-paper" role="radiogroup" aria-labelledby="l-paper-label"></div></div>
+              <div class="two">
+                <div class="field"><label for="l-style" data-i18n="style_label">Writing style</label>
+                  <select id="l-style"><option value="hand" data-i18n="style_hand">Handwritten look</option><option value="typed" data-i18n="style_typed">Clean print</option></select>
+                </div>
+                <div class="field"><label for="l-date" data-i18n="date_label">Date</label><input id="l-date" type="date"></div>
+              </div>
+              <label class="checkline"><input type="checkbox" id="l-lines"> <span data-i18n="ruled_lines">Ruled lines</span></label>
+            </div>
+          </details>
+        </form>
+
+        <div>
+          <div class="sheets" id="sheets" aria-label="Letter preview"></div>
+          <p class="caption" id="sheet-caption" data-i18n="a4_preview">A4 preview</p>
+        </div>
+      </div>
+
+      <div class="actionbar" id="l-actions">
+        <button class="btn" type="button" id="l-pdf" data-i18n="download_pdf">Download PDF</button>
+        <div class="morewrap">
+          <button class="btn ghost" type="button" id="l-more" aria-expanded="false" aria-controls="l-more-menu"><span data-i18n="more_btn">More</span> ▾</button>
+          <div class="more-menu" id="l-more-menu" hidden>
+            <button type="button" id="l-image" data-i18n="download_png">Download PNG</button>
+            <button type="button" id="l-print" data-i18n="print_btn">Print</button>
+            <button type="button" id="l-share" data-i18n="share_btn" hidden>Share</button>
+            <button type="button" id="l-copy" data-i18n="copy_post">Copy text</button>
+            <button type="button" id="l-new" data-i18n="new_letter">New letter</button>
+            <p class="info" data-i18n="letter_info_short">Full-page A4 · 300 dpi · no white border</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WHY UNWRITTEN EXISTS -->
+  <section class="why" id="why" aria-labelledby="why-title">
+    <div class="why-copy">
+      <p class="eyebrow" data-i18n="why_eyebrow">Why UNWRITTEN exists</p>
+      <h2 id="why-title" data-i18n="why_title">A companion to your notebook, never a replacement.</h2>
+      <p data-i18n="why_p1">Notebooks and journals matter. The pen, the paper, the slower pace of handwriting: UNWRITTEN does not try to take any of that away.</p>
+      <p data-i18n="why_p2">But some days the notebook is not with you. You are on a bus, in a queue, away from home, or a thought turns up at midnight and your bag is across the room. UNWRITTEN is a place for that thought to land, so it is still there when you get back to your pages.</p>
+      <p class="scribble">डायरी आधी, UNWRITTEN सोबत</p>
+    </div>
+    <div class="why-notes">
+      <div class="wn" style="--c:#FFE761;--r:-2deg"><b data-i18n="why_w1_t">On the move</b><span data-i18n="why_w1_d">Bus, train or a long wait. Jot it here and carry on.</span></div>
+      <div class="wn" style="--c:#FFA9B1;--r:1.6deg"><b data-i18n="why_w2_t">No pen in reach</b><span data-i18n="why_w2_d">The idea will not wait. Type it and keep it.</span></div>
+      <div class="wn" style="--c:#8FC0FF;--r:-1deg"><b data-i18n="why_w3_t">Back at your desk</b><span data-i18n="why_w3_d">Copy it into your notebook, or print it and paste it in.</span></div>
+    </div>
+    <aside class="card way">
+      <h3 data-i18n="why_guide_title">Use it with your notebook</h3>
+      <ol>
+        <li data-i18n="why_step1" data-i18n-html><b>Catch it here</b> when paper is out of reach.</li>
+        <li data-i18n="why_step2" data-i18n-html><b>Save it</b> as a PNG, or print it as a PDF.</li>
+        <li data-i18n="why_step3" data-i18n-html><b>Rewrite it by hand</b> in your journal when you can. That keeps the habit going.</li>
+      </ol>
+      <p class="privacy" data-i18n="why_privacy">Your writing stays on this device. If you sign in, it is saved to your own private account and shown to no one else.</p>
+    </aside>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-top">
+      <span class="brand">UNWRITTEN</span>
+      <span class="tagline" data-i18n="tagline">Write a little, every day.</span>
+    </div>
+    <div class="foot-links" role="group" aria-label="Site actions">
+      <button class="uplink" type="button" id="f-why" data-i18n="f_why">Why UNWRITTEN</button>
+      <button class="uplink" type="button" id="f-lang">मराठी</button>
+      <button class="uplink" type="button" id="f-privacy" data-i18n="f_privacy">Privacy</button>
+      <button class="uplink" type="button" id="f-install" data-i18n="f_install" hidden>Install app</button>
+      <button class="uplink" type="button" id="up" data-i18n="f_top">Back to top ↑</button>
+    </div>
+    <div class="foot-links" id="f-acct" role="group" aria-label="Account" hidden>
+      <span class="acct-text" id="f-acct-text"></span>
+      <button class="uplink" type="button" id="f-signin" data-i18n="f_signin" hidden>Sign in</button>
+      <button class="uplink" type="button" id="f-signout" data-i18n="f_signout" hidden>Sign out</button>
+    </div>
+      <details class="datamenu">
+        <summary class="uplink" data-i18n="f_data">Your data</summary>
+        <div class="foot-links sub">
+          <button class="uplink" type="button" id="f-backup" data-i18n="f_backup">Backup (JSON)</button>
+          <button class="uplink" type="button" id="f-text" data-i18n="f_text">Readable copy (.txt)</button>
+          <button class="uplink" type="button" id="f-restore" data-i18n="f_restore">Restore backup</button>
+          <button class="uplink" type="button" id="f-erase" data-i18n="f_erase">Erase everything</button>
+        </div>
+      </details>
+  </footer>
+</div>
+
+<div class="login" id="login" role="dialog" aria-modal="true" aria-labelledby="login-title" hidden>
+  <div class="login-card card stack">
+    <span class="login-brand">UNWRITTEN</span>
+    <h2 class="form-title" id="login-title" data-i18n="login_title">Welcome back</h2>
+    <p class="note-small" data-i18n="login_sub">Sign in to keep your writing safe and see it on every device.</p>
+    <button class="btn alt gbtn" type="button" id="a-google"><svg class="gicon" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-i18n="login_google">Continue with Google</span></button>
+    <p class="or" data-i18n="login_or">or use your email</p>
+    <form class="stack" id="login-form" novalidate>
+      <div class="field"><label for="a-email" data-i18n="login_email">Email</label>
+        <input id="a-email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required></div>
+      <div class="field"><label for="a-pass" data-i18n="login_pass">Password</label>
+        <div class="pw"><input id="a-pass" type="password" autocomplete="current-password" required>
+          <button class="pwtoggle" type="button" id="a-show" aria-controls="a-pass" data-i18n="pw_show">Show</button></div></div>
+      <p class="login-err" id="login-err" role="alert" hidden></p>
+      <button class="btn" type="submit" id="a-go" data-i18n="login_signin">Sign in</button>
+    </form>
+    <div class="login-links">
+      <button class="uplink" type="button" id="a-mode" data-i18n="login_to_signup">New here? Create an account</button>
+      <button class="uplink" type="button" id="a-forgot" data-i18n="login_forgot">Forgot password?</button>
+      <button class="uplink" type="button" id="a-guest" data-i18n="login_guest" hidden>Continue without an account</button>
+      <button class="uplink" type="button" id="a-privacy" data-i18n="privacy_link">Privacy</button>
+    </div>
+    <p class="note-small" data-i18n="login_privacy">Your writing is saved to your own private account. Signing out removes it from this device.</p>
+  </div>
+</div>
+
+<div class="login" id="profile" role="dialog" aria-modal="true" aria-labelledby="profile-title" aria-describedby="profile-help" hidden>
+  <section class="login-card card stack profile-card" tabindex="-1">
+    <div class="profile-top">
+      <span class="login-brand">UNWRITTEN</span>
+      <button class="mini" id="profile-close" type="button" aria-label="Close profile" data-i18n-aria="profile_close">&times;</button>
+    </div>
+    <h2 class="form-title" id="profile-title" data-i18n="profile_title">Your profile</h2>
+    <p class="note-small" id="profile-help" data-i18n="profile_help">A little about your UNWRITTEN account.</p>
+    <div class="profile-identity">
+      <img class="profile-avatar" id="profile-photo-preview" alt="" referrerpolicy="no-referrer" hidden>
+      <span class="profile-avatar" id="profile-initial-preview" aria-hidden="true">?</span>
+      <div class="profile-details">
+        <strong id="profile-display-name" hidden></strong>
+        <span id="profile-email"></span>
+      </div>
+    </div>
+    <form class="stack" id="profile-form">
+      <div class="field">
+        <label for="profile-name" data-i18n="profile_name">Display name</label>
+        <input id="profile-name" type="text" maxlength="80" autocomplete="name" data-i18n-ph="profile_name_placeholder" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="profile-photo-url" data-i18n="profile_photo">Profile photo URL</label>
+        <input id="profile-photo-url" type="text" maxlength="2048" inputmode="url" autocomplete="url" data-i18n-ph="profile_photo_placeholder" placeholder="https://…">
+      </div>
+      <p class="login-err" id="profile-err" role="alert" hidden></p>
+      <button class="btn" id="profile-save" type="submit" data-i18n="profile_save">Save name</button>
+    </form>
+    <div class="profile-stats" aria-label="Writing activity" data-i18n-aria="profile_activity">
+      <span><b id="profile-posts">0</b> <span data-i18n="profile_posts">posts</span></span>
+      <span><b id="profile-notes">0</b> <span data-i18n="profile_notes">notes</span></span>
+      <span><b id="profile-days">0</b> <span data-i18n="profile_days">writing days</span></span>
+    </div>
+    <p class="profile-sync" id="profile-sync-status" role="status" aria-live="polite"></p>
+    <p class="note-small" data-i18n="profile_privacy">Your writing is private to your account. Signing out removes its copy from this device.</p>
+    <button class="uplink" id="profile-reset" type="button" data-i18n="profile_reset">Reset password</button>
+    <button class="uplink" id="profile-signout" type="button" data-i18n="f_signout">Sign out</button>
+    <button class="uplink" id="profile-delete" type="button" data-i18n="profile_delete">Delete account</button>
+  </section>
+</div>
+
+<div class="login" id="privacy" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden>
+  <section class="login-card card stack" tabindex="-1">
+    <div class="profile-top">
+      <span class="login-brand">UNWRITTEN</span>
+      <button class="mini" id="privacy-close" type="button" aria-label="Close" data-i18n-aria="privacy_close">&times;</button>
+    </div>
+    <h2 class="form-title" id="privacy-title" data-i18n="privacy_title">Privacy, in plain words</h2>
+    <ul class="plain">
+      <li data-i18n="privacy_p1">If you do not sign in, everything you write stays in this browser and goes nowhere.</li>
+      <li data-i18n="privacy_p2">If you sign in, we keep your email and four things: your posts, notes, letter and writing days. Nothing else. No ads and no trackers.</li>
+      <li data-i18n="privacy_p3">They are stored with Google Firebase. The rules let only your own account read your writing. The person who runs UNWRITTEN can technically open the database for maintenance, but does not read or share your writing.</li>
+      <li data-i18n="privacy_p4">You are in control. Sign out removes it all from this device. Erase everything also deletes your saved copy. Delete account in your profile removes your account and its data.</li>
+    </ul>
+  </section>
+</div>
+
+<input type="file" id="restore-file" accept="application/json,.json" hidden>
+<div class="toast" id="toast" role="status" hidden></div>
+<div id="print-root" aria-hidden="true"></div>
+
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+<script type="module" src="sync.js"></script>
+</body>
+</html>
