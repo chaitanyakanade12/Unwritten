@@ -314,10 +314,8 @@ function applyTheme(dark){
   let p=location.hash.slice(1);if(!PAGES.includes(p))p='home';
   $('#theme-color').content=dark?THEME_DARK[p]:THEME[p];
 }
-function initTheme(){
-  const s=store.get(K.theme);
-  const dark=s?s==='dark':(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);
-  applyTheme(dark);
+function initTheme(){                         /* bright by default; night mode only if the person picked it */
+  applyTheme(store.get(K.theme)==='dark');
 }
 
 /* ---------- pages and the pop-up menu ---------- */
@@ -1296,11 +1294,6 @@ if(tb)tb.addEventListener('click',()=>{
   store.set(K.theme,next?'dark':'light');
   applyTheme(next);
 });
-if(window.matchMedia){
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',e=>{
-    if(!store.get(K.theme))applyTheme(e.matches);
-  });
-}
 
 /* ---------- works offline, installs like an app ---------- */
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
@@ -1322,9 +1315,14 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
   const still=matchMedia('(prefers-reduced-motion: reduce)');
   const GAP=26,R=1.5,AMP=7;            /* grid spacing, dot radius, drift distance (px) */
   let W=0,H=0,t=0,last=0,raf=0,rt=0,mx=-999,my=-999,push=0;
-  function size(){
-    const dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
-    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cx.setTransform(dpr,0,0,dpr,0,0);
+  function size(){                              /* phones: the address bar changes the height while scrolling; ignore that */
+    const w=innerWidth,h=innerHeight;
+    if(w===W&&h<=H)return;
+    if(w!==W)H=0;
+    const dpr=Math.min(devicePixelRatio||1,2);W=w;H=Math.max(H,h);
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+    cv.style.width=W+'px';cv.style.height=H+'px';
+    cx.setTransform(dpr,0,0,dpr,0,0);
   }
   function draw(){
     cx.clearRect(0,0,W,H);
@@ -1341,10 +1339,13 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
     }
     cx.fill();
   }
+  const lowPower=matchMedia('(max-width:700px),(pointer:coarse)');   /* phones: about 30 frames a second is plenty for a slow drift */
   function frame(ts){
+    raf=requestAnimationFrame(frame);
+    if(lowPower.matches&&last&&ts-last<30)return;
     const dt=Math.min(.05,(ts-(last||ts))/1000);last=ts;
     t+=dt;push+=((mx>-900?1:0)-push)*Math.min(1,dt*2);
-    draw();raf=requestAnimationFrame(frame);
+    draw();
   }
   function run(){
     cancelAnimationFrame(raf);raf=0;last=0;

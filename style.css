@@ -562,3 +562,26 @@ button.streak-nudge:hover{rotate:0deg}
 html[data-theme="dark"] .profile-card #profile-delete{color:#FF8A8A}
 /* windows that open over the site get a soft backdrop (the login screen itself stays clear so the dots show) */
 #privacy,#profile{background:rgba(42,11,11,.58)}
+
+/* ---------- phones (desktop is untouched) ---------- */
+.theme-toggle{flex:none}
+.navlabel{white-space:nowrap}
+.logo::before{content:"";position:absolute;inset:-12px -6px}   /* bigger tap area, same look */
+@media(max-width:420px){
+  .top{gap:8px}
+  .top-actions{gap:8px}
+  .navbtn{gap:8px;padding:5px 6px 5px 14px;font-size:1.02rem}
+  .chev{width:30px;height:30px}
+}
+@media(max-width:380px){
+  .logo{font-size:clamp(1rem,5vw,1.2rem)}
+  .theme-toggle{width:40px;height:40px;font-size:1.15rem}
+  .profile-toggle{width:36px;height:36px}
+  .navbtn{font-size:.92rem;letter-spacing:.03em;padding-left:12px}
+  .chev{width:28px;height:28px}
+}
+/* fingers: comfortable tap size on touch screens */
+@media(pointer:coarse){
+  .chip,.fchip,.nbtn,.zenbtn,.mini{min-height:44px}
+  .mini{min-width:44px}
+}
