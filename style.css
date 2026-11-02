@@ -585,3 +585,23 @@ html[data-theme="dark"] .profile-card #profile-delete{color:#FF8A8A}
   .chip,.fchip,.nbtn,.zenbtn,.mini{min-height:44px}
   .mini{min-width:44px}
 }
+
+/* ---------- phones: calmer, roomier layout (desktop untouched) ---------- */
+@media(max-width:600px){
+  #wind{opacity:.55}
+  .card{padding:26px 18px 22px;filter:drop-shadow(4px 5px 0 var(--edge))}
+  .card::after{width:34px;height:34px}
+  .hero{gap:28px}
+  .lede{font-size:1.1rem;margin:14px 0 20px}
+  .hero .scribble,.phead .scribble{display:none}   /* decorative repeat of the heading */
+  .doors{gap:24px;margin-top:36px}
+  .door.d-notes{rotate:.8deg}
+  .door.d-letter{rotate:-.6deg}
+  .door h3{font-size:1.9rem}
+  .door .tag{display:none}
+  .why{margin-top:56px;gap:24px}
+  .why-notes,.why-copy .scribble,.why-copy [data-i18n="why_p2"]{display:none}   /* keep the short version on phones */
+  .why-copy>p:not(.eyebrow):not(.scribble){font-size:1.05rem;line-height:1.6}
+  .why h2{font-size:clamp(1.9rem,8vw,2.4rem);margin:6px 0 14px}
+  .foot{margin-top:44px}
+}
