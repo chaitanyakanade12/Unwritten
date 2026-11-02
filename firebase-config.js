@@ -7,5 +7,5 @@ window.LIHA_FIREBASE = {
   authDomain: 'liha-fd77f.firebaseapp.com',
   projectId: 'liha-fd77f',
   appId: '1:1002899370812:web:b8bd2c3a94beb99a502439',
-  requireLogin: true   /* true = login screen first. false = people can also "Continue without an account" */
+  requireLogin: false   /* true = login screen first. false = people can write first and sign in when they want to save */
 };
