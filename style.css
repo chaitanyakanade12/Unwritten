@@ -630,3 +630,7 @@ html[data-theme="dark"] .profile-card #profile-delete{color:#FF8A8A}
 .foot .totop{border-color:transparent;padding-inline:8px}
 .foot .totop:hover{box-shadow:none}
 body:not(.locked) #login{background:rgba(42,11,11,.58)}   /* pop-up over the site gets a soft backdrop */
+
+/* short "how it works" line above the writing box */
+.howto{font-size:.92rem;font-weight:600;line-height:1.45;padding:8px 12px;border-radius:10px;background:rgba(0,0,0,.06);border-left:4px solid var(--accent)}
+.facts .privacy{color:var(--muted)}

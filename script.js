@@ -157,8 +157,8 @@ const I18N={
     filter_all:'All',filter_hide:'Hide sample posts',filter_journal:'Journal',filter_letters:'Letters',filter_ideas:'Ideas',filter_notes:'Notes',
     label_title:'Title',title_placeholder:"What is today's post about?",label_topic:'Topic',label_post:'Post',
     post_placeholder:'Write until the tea gets cold. Leave a blank line between paragraphs.',
-    publish_btn:'Publish post',save_changes_btn:'Save changes',close_btn:'Close',
-    draft_saved_hint:'Your draft is saved on this device as you type.',
+    publish_btn:'Save post',save_changes_btn:'Save changes',close_btn:'Close',
+    draft_saved_hint:'Only you can see your posts. Nothing is shared. Your draft saves as you type.',
     all_posts_btn:'← All posts',copy_post:'Copy text',share_card:'Share card',share_btn:'Share',
     download_pdf:'Download PDF',print_btn:'Print',edit_post:'Edit post',delete_post:'Delete post',
     confirm_delete:'Tap again to delete',no_posts:'No posts match. Try another word or topic.',
@@ -184,7 +184,7 @@ const I18N={
     why_w3_t:'Back at your desk',why_w3_d:'Copy it into your notebook, or print it and paste it in.',
     why_guide_title:'Use it with your notebook',
     why_step1:'<b>Catch it here</b> when paper is out of reach.',why_step2:'<b>Save it</b> as a PNG, or print it as a PDF.',why_step3:'<b>Rewrite it by hand</b> in your journal when you can. That keeps the habit going.',
-    why_privacy:'Your writing stays on this device. If you sign in, it is saved to your own private account and shown to no one else.',
+    how_blog:'<b>Normal:</b> pick a topic, write, save. <b>Zen:</b> just you and the page. Zero noise.',how_letter:'<b>Normal:</b> pick your paper and vibe, then print. <b>Zen:</b> just you and the page. Zero noise.',fact_title:'Scroll less, write a little',fact1:'<b>Scrolling</b> fills your head with other people’s thoughts. Writing gives you yours back.',fact2:'<b>Putting a feeling into words</b> tends to make it feel smaller. Researchers call this affect labelling.',fact3:'<b>Studies</b> link long stretches of doomscrolling with more stress, and expressive writing with a slightly better mood.',fact_note:'Just research, not medical advice. A few lines a day is plenty.',why_privacy:'Your writing stays on this device. If you sign in, it is saved to your own private account and shown to no one else.',
     login_title:'Welcome back',signup_title:'Create your account',login_sub:'Sign in to keep your writing safe and see it on every device.',login_google:'Continue with Google',login_or:'or use your email',login_email:'Email',login_pass:'Password',login_signin:'Sign in',signup_go:'Create account',login_to_signup:'New here? Create an account',login_to_signin:'Already have an account? Sign in',login_forgot:'Forgot password?',login_guest:'Continue without an account',login_privacy:'Your writing is saved to your own private account. Signing out removes it from this device.',f_signin:'Sign in',f_signout:'Sign out',f_signout_confirm:'Tap again to sign out',acct_as:'Signed in as ',sync_saved:'Saved to your account',sync_wait:'Syncing…',sync_off:'Offline. Will sync later',err_creds:'Wrong email or password.',err_exists:'An account with this email already exists. Try signing in.',err_weak:'Use a password with at least 8 characters.',err_email:'Please enter a valid email.',err_many:'Too many tries. Please wait a little and try again.',err_net:'No internet. Please check your connection.',err_popup:'The pop-up was blocked. Allow pop-ups or use your email.',err_generic:'Something went wrong. Please try again.',reset_sent:'Password reset link sent to your email.',need_email:'Type your email above first.',offline_login:'You need internet to sign in.',
     profile_open:'Open profile',profile_close:'Close profile',profile_title:'Your profile',profile_help:'A little about your UNWRITTEN account.',profile_name:'Display name',profile_name_placeholder:'Your name',profile_photo:'Profile photo URL',profile_photo_placeholder:'https://…',profile_photo_error:'Use an https image address or a file on this site.',profile_save:'Save profile',profile_saving:'Saving…',profile_saved:'Your profile was saved.',profile_name_required:'Please add a name first.',profile_save_error:'Could not save your profile. Please try again.',profile_offline:'Profile settings need an internet connection.',profile_posts:'posts',profile_notes:'notes',profile_days:'writing days',profile_activity:'Writing activity',profile_privacy:'Your writing is private to your account. Signing out removes its copy from this device.',profile_reset:'Reset password',
     streak_total:'{n} days written',counts:'That counts. {n} days written so far.',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
@@ -199,7 +199,7 @@ const I18N={
     tagline:'Write a little, every day.',
     f_why:'Why UNWRITTEN',f_backup:'Backup (JSON)',f_text:'Readable copy (.txt)',f_restore:'Restore backup',
     f_install:'Install app',f_erase:'Erase everything',f_erase_confirm:'Tap again to erase everything',f_top:'Back to top ↑',
-    toast_copied:'Post copied',toast_deleted:'Post deleted',toast_published:'Post published',toast_saved:'Changes saved',
+    toast_copied:'Post copied',toast_deleted:'Post deleted',toast_published:'Post saved',toast_saved:'Changes saved',
     toast_note_saved:'Note image saved',toast_note_stuck:'Note stuck on the wall',toast_letter_copied:'Letter copied',
     toast_fresh_ready:'Fresh page ready',toast_pdf_saved:'PDF saved',toast_img_saved:'Letter image saved',
     toast_making_img:'Making your image…',toast_making_pdf:'Making your PDF…',toast_making_card:'Making share card…',
@@ -221,8 +221,8 @@ const I18N={
     filter_all:'सर्व',filter_hide:'उदाहरणे लपवा',filter_journal:'रोजनीशी',filter_letters:'पत्रे',filter_ideas:'कल्पना',filter_notes:'नोंदी',
     label_title:'शीर्षक',title_placeholder:'आजचा ब्लॉग कशाबद्दल आहे?',label_topic:'विषय',label_post:'मजकूर',
     post_placeholder:'चहा गार होईपर्यंत लिहा. परिच्छेदांमध्ये एक ओळ रिकामी सोडा.',
-    publish_btn:'प्रसिद्ध करा',save_changes_btn:'बदल जतन करा',close_btn:'बंद करा',
-    draft_saved_hint:'तुम्ही लिहिता तसतसा मसुदा आपोआप जतन होतो.',
+    publish_btn:'ब्लॉग जतन करा',save_changes_btn:'बदल जतन करा',close_btn:'बंद करा',
+    draft_saved_hint:'तुमचे ब्लॉग फक्त तुम्हीच पाहू शकता. काहीही शेअर होत नाही. लिहिताना मसुदा आपोआप जतन होतो.',
     all_posts_btn:'← सर्व ब्लॉग',copy_post:'मजकूर कॉपी करा',share_card:'कार्ड शेअर करा',share_btn:'शेअर करा',
     download_pdf:'PDF डाउनलोड',print_btn:'प्रिंट करा',edit_post:'संपादित करा',delete_post:'हटवा',
     confirm_delete:'हटवण्यासाठी पुन्हा दाबा',no_posts:'काही सापडले नाही. दुसरा शब्द शोधून पहा.',
@@ -248,7 +248,7 @@ const I18N={
     why_w3_t:'घरी आल्यावर',why_w3_d:'डायरीमध्ये हाताने लिहून काढा किंवा प्रिंट करून चिकटवा.',
     why_guide_title:'डायरीसोबत कसे वापरावे?',
     why_step1:'कागद उपलब्ध नसेल तेव्हा <b>इथे टिपून घ्या</b>.',why_step2:'<b>PNG किंवा PDF</b> स्वरूपात जतन करा.',why_step3:'वेळ मिळेल तेव्हा डायरीत <b>हाताने लिहा</b>.',
-    why_privacy:'तुमचे लिखाण याच उपकरणावर राहते. साइन इन केल्यास ते तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते आणि दुसऱ्या कुणालाही दिसत नाही.',
+    how_blog:'<b>नॉर्मल:</b> विषय निवडा, लिहा, जतन करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',how_letter:'<b>नॉर्मल:</b> कागद आणि मूड निवडा, मग प्रिंट करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',fact_title:'स्क्रोल कमी, लिहा थोडं',fact1:'<b>स्क्रोलिंग</b> डोक्यात इतरांचे विचार भरतं. लिहिल्याने तुमचे स्वतःचे विचार परत मिळतात.',fact2:'<b>भावना शब्दांत मांडली</b> की ती छोटी वाटू लागते. संशोधक याला affect labelling म्हणतात.',fact3:'<b>अभ्यासांनुसार</b> जास्त वेळ दुःखद बातम्या स्क्रोल केल्याने ताण वाढतो, आणि मनातलं लिहिल्याने मूड थोडा सुधारतो.',fact_note:'हे फक्त संशोधन आहे, वैद्यकीय सल्ला नव्हे. रोज थोड्या ओळी पुरेशा आहेत.',why_privacy:'तुमचे लिखाण याच उपकरणावर राहते. साइन इन केल्यास ते तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते आणि दुसऱ्या कुणालाही दिसत नाही.',
     login_title:'पुन्हा स्वागत',signup_title:'खाते तयार करा',login_sub:'तुमचे लिखाण सुरक्षित ठेवण्यासाठी आणि सर्व उपकरणांवर पाहण्यासाठी साइन इन करा.',login_google:'Google ने पुढे जा',login_or:'किंवा ईमेल वापरा',login_email:'ईमेल',login_pass:'पासवर्ड',login_signin:'साइन इन',signup_go:'खाते तयार करा',login_to_signup:'नवीन आहात? खाते तयार करा',login_to_signin:'आधीच खाते आहे? साइन इन करा',login_forgot:'पासवर्ड विसरलात?',login_guest:'खात्याशिवाय पुढे जा',login_privacy:'तुमचे लिखाण तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते. साइन आउट केल्यावर ते या उपकरणातून काढले जाते.',f_signin:'साइन इन',f_signout:'साइन आउट',f_signout_confirm:'साइन आउटसाठी पुन्हा टॅप करा',acct_as:'साइन इन: ',sync_saved:'खात्यात जतन झाले',sync_wait:'समक्रमित होत आहे…',sync_off:'ऑफलाइन. नंतर समक्रमित होईल',err_creds:'ईमेल किंवा पासवर्ड चुकीचा आहे.',err_exists:'या ईमेलचे खाते आधीच आहे. साइन इन करा.',err_weak:'पासवर्ड किमान ८ अक्षरांचा ठेवा.',err_email:'कृपया योग्य ईमेल लिहा.',err_many:'खूप प्रयत्न झाले. थोड्या वेळाने पुन्हा करा.',err_net:'इंटरनेट नाही. कनेक्शन तपासा.',err_popup:'पॉप-अप अडवला गेला. परवानगी द्या किंवा ईमेल वापरा.',err_generic:'काहीतरी चुकले. पुन्हा प्रयत्न करा.',reset_sent:'पासवर्ड रीसेटची लिंक ईमेलवर पाठवली.',need_email:'आधी वरती ईमेल लिहा.',offline_login:'साइन इन करण्यासाठी इंटरनेट हवे.',
     profile_open:'प्रोफाइल उघडा',profile_close:'प्रोफाइल बंद करा',profile_title:'तुमचे प्रोफाइल',profile_help:'तुमच्या UNWRITTEN खात्याची थोडी माहिती.',profile_name:'दिसणारे नाव',profile_name_placeholder:'तुमचे नाव',profile_photo:'प्रोफाइल फोटोची लिंक',profile_photo_placeholder:'https://…',profile_photo_error:'https लिंक किंवा या साइटवरील फोटो वापरा.',profile_save:'प्रोफाइल जतन करा',profile_saving:'जतन होत आहे…',profile_saved:'तुमचे प्रोफाइल जतन झाले.',profile_name_required:'कृपया आधी नाव लिहा.',profile_save_error:'प्रोफाइल जतन झाले नाही. पुन्हा प्रयत्न करा.',profile_offline:'प्रोफाइल बदलण्यासाठी इंटरनेट कनेक्शन आवश्यक आहे.',profile_posts:'ब्लॉग',profile_notes:'चिठ्ठ्या',profile_days:'लेखनाचे दिवस',profile_activity:'लेखनाची माहिती',profile_privacy:'तुमचे लिखाण तुमच्या खात्यात खाजगी राहते. साइन आउट केल्यावर त्याची प्रत या उपकरणातून काढली जाते.',profile_reset:'पासवर्ड रीसेट करा',
     streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
@@ -263,7 +263,7 @@ const I18N={
     tagline:'दररोज थोडे, मनापासून लिहा.',
     f_why:'UNWRITTEN बद्दल',f_backup:'बॅकअप (JSON)',f_text:'वाचनीय प्रत (.txt)',f_restore:'बॅकअप पूर्ववत करा',
     f_install:'अॅप इंस्टॉल करा',f_erase:'सर्व हटवा',f_erase_confirm:'सर्व हटवण्यासाठी पुन्हा दाबा',f_top:'वर जा ↑',
-    toast_copied:'मजकूर कॉपी केला',toast_deleted:'ब्लॉग हटवला',toast_published:'ब्लॉग प्रसिद्ध केला',toast_saved:'बदल जतन केले',
+    toast_copied:'मजकूर कॉपी केला',toast_deleted:'ब्लॉग हटवला',toast_published:'ब्लॉग जतन केला',toast_saved:'बदल जतन केले',
     toast_note_saved:'चिट्ठी जतन केली',toast_note_stuck:'चिट्ठी भिंतीवर चिकटवली',toast_letter_copied:'पत्र कॉपी केले',
     toast_fresh_ready:'नवे पान तयार आहे',toast_pdf_saved:'PDF जतन झाली',toast_img_saved:'चित्र जतन झाले',
     toast_making_img:'चित्र तयार करत आहे…',toast_making_pdf:'PDF तयार करत आहे…',toast_making_card:'शेअर कार्ड तयार करत आहे…',
@@ -296,7 +296,7 @@ function applyLang(lang){
   });
   $$('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria,el.getAttribute('aria-label')||'')));
   const fl=$('#f-lang');if(fl)fl.textContent=curLang==='mr'?'English':'मराठी';
-  renderThemes();renderStarter();letterCount();
+  renderThemes();renderStarter();letterCount();renderLetter();
   updateFilters();
   renderStreak();
   renderWall();
@@ -520,7 +520,7 @@ function openComposer(open,post){
   if(!open)return;
   editingId=post?post.id:null;
   $('#composer-title').textContent=post?t('edit_post_title','Edit post'):t('write_today',"Write today's post");
-  $('#p-submit').textContent=post?t('save_changes_btn','Save changes'):t('publish_btn','Publish post');
+  $('#p-submit').textContent=post?t('save_changes_btn','Save changes'):t('publish_btn','Save post');
   $('#post-cancel').textContent=t('close_btn','Close');
   const d=post?{t:post.title,b:post.body,g:post.tag}:parse(store.get(K.draft),{});
   pTitle.value=str(d.t,80);pBody.value=str(d.b,20000);pTag.value=TAGS[d.g]?d.g:'journal';
@@ -549,7 +549,7 @@ pf.addEventListener('submit',e=>{
   const was=editingId;editingId=null;
   savePosts();store.del(K.draft);markToday();
   pf.reset();openComposer(false);
-  renderBlog();toast(was?t('toast_saved','Changes saved'):t('toast_published','Post published'));
+  renderBlog();toast(was?t('toast_saved','Changes saved'):t('toast_published','Post saved'));
   if(!was)confettiPop(pf);
 });
 $('#prompt-blog').addEventListener('click',()=>{
