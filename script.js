@@ -1314,7 +1314,7 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
   document.body.prepend(cv);
   const cx=cv.getContext('2d');if(!cx)return;
   const still=matchMedia('(prefers-reduced-motion: reduce)');
-  const GAP=26,R=1.5,AMP=7;            /* grid spacing, dot radius, drift distance (px) */
+  const GAP=26,AMP=7;            /* grid spacing, dot radius, drift distance (px) */
   let W=0,H=0,t=0,last=0,raf=0,rt=0,mx=-999,my=-999,push=0;
   function size(){                              /* phones: the address bar changes the height while scrolling; ignore that */
     const w=innerWidth,h=innerHeight;
@@ -1327,7 +1327,8 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
   }
   function draw(){
     cx.clearRect(0,0,W,H);
-    cx.fillStyle=document.documentElement.dataset.theme==='dark'?'rgba(255,255,255,.16)':'rgba(42,11,11,.22)';
+    const ph_=lowPower.matches,R=ph_?2:1.5;                /* phones: a touch bigger and darker so the dots read on small screens */
+    cx.fillStyle=document.documentElement.dataset.theme==='dark'?(ph_?'rgba(255,255,255,.24)':'rgba(255,255,255,.16)'):(ph_?'rgba(42,11,11,.32)':'rgba(42,11,11,.22)');
     cx.beginPath();
     for(let gy=GAP/2;gy<H+GAP;gy+=GAP)for(let gx=GAP/2;gx<W+GAP;gx+=GAP){
       const ph=gx*.006+gy*.009-t*.5;                    /* a slow wave travelling diagonally */

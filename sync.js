@@ -100,6 +100,18 @@ function lock(show) {                         /* show = the login card is visibl
   $('#login').hidden = !show;
   if (show) setTimeout(() => $('#a-email')?.focus({ preventScroll: true }), 50);
 }
+function nudge() {                              /* one gentle sign-in pop-up per session, never while someone is typing */
+  if (C.requireLogin) return;
+  let seen = false; try { seen = sessionStorage.getItem('liha.nudged') } catch {}
+  if (seen) return;
+  setTimeout(() => {
+    if (user || !$('#login').hidden) return;
+    const a = document.activeElement;
+    if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
+    try { sessionStorage.setItem('liha.nudged', '1') } catch {}
+    $('#a-guest').hidden = false; lock(true);
+  }, 25000);
+}
 function setMode(m) {
   mode = m;
   const up = m === 'up';
@@ -186,8 +198,9 @@ async function onUser(u) {
     $('#profile-btn').hidden = true;
     $('#profile').hidden = true;
     if (ls.get('liha.uid')) { wipeLocal(); location.reload(); return }      /* signed out: nothing stays on this device */
-    $('#f-acct').hidden = false; $('#f-signin').hidden = false; $('#f-signout').hidden = true;
+    $('#f-acct').hidden = true; $('#f-signin').hidden = true; $('#f-signout').hidden = true;
     $('#f-acct-text').textContent = '';
+    $('#guest-btn').hidden = false; nudge();
     if (C.requireLogin) { document.body.classList.add('locked'); lock(true) }
     $('#a-guest').hidden = !!C.requireLogin;
     return;
@@ -197,6 +210,7 @@ async function onUser(u) {
   if (prev && prev !== u.uid) wipeLocal();                                   /* another account used this device */
   ls.set('liha.uid', u.uid); ls.set('liha.email', u.email || '');
   document.body.classList.remove('locked'); lock(false);
+  $('#guest-btn').hidden = true;
   $('#f-acct').hidden = false; $('#f-signin').hidden = true; $('#f-signout').hidden = false;
   $('#profile-btn').hidden = false;
   renderProfile(user);
@@ -303,6 +317,7 @@ async function start() {
   });
   $('#a-mode').addEventListener('click', () => setMode(mode === 'in' ? 'up' : 'in'));
   $('#a-guest').addEventListener('click', () => lock(false));
+  $('#guest-btn').addEventListener('click', () => { $('#a-guest').hidden = !!C.requireLogin; lock(true) });
   $('#f-signin').addEventListener('click', () => { $('#a-guest').hidden = !!C.requireLogin; lock(true) });
   let armT;
   $('#f-signout').addEventListener('click', async e => {

@@ -28,6 +28,10 @@
       <button class="theme-toggle" id="theme-btn" type="button" aria-label="Switch to dark mode">
         <span class="theme-icon" id="theme-icon" aria-hidden="true">☾</span>
       </button>
+      <button class="guest-btn" id="guest-btn" type="button" aria-label="Sign in or sign up" hidden>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4 4-6 7.5-6s6.7 2 7.5 6"/></svg>
+        <span class="guest-label" data-i18n="f_signin">Sign in</span>
+      </button>
       <button class="theme-toggle profile-toggle" id="profile-btn" type="button" aria-label="Profile" data-i18n-aria="profile_open" hidden>
         <span id="profile-initials" aria-hidden="true">?</span>
         <img id="profile-photo" alt="" referrerpolicy="no-referrer" hidden>
@@ -249,13 +253,6 @@
       <button class="uplink" type="button" id="f-lang">मराठी</button>
       <button class="uplink" type="button" id="f-privacy" data-i18n="f_privacy">Privacy</button>
       <button class="uplink" type="button" id="f-install" data-i18n="f_install" hidden>Install app</button>
-      <button class="uplink" type="button" id="up" data-i18n="f_top">Back to top ↑</button>
-    </div>
-    <div class="foot-links" id="f-acct" role="group" aria-label="Account" hidden>
-      <span class="acct-text" id="f-acct-text"></span>
-      <button class="uplink" type="button" id="f-signin" data-i18n="f_signin" hidden>Sign in</button>
-      <button class="uplink" type="button" id="f-signout" data-i18n="f_signout" hidden>Sign out</button>
-    </div>
       <details class="datamenu">
         <summary class="uplink" data-i18n="f_data">Your data</summary>
         <div class="foot-links sub">
@@ -265,6 +262,16 @@
           <button class="uplink" type="button" id="f-erase" data-i18n="f_erase">Erase everything</button>
         </div>
       </details>
+    </div>
+    <div class="foot-links" id="f-acct" role="group" aria-label="Account" hidden>
+      <span class="acct-text" id="f-acct-text"></span>
+      <button class="uplink" type="button" id="f-signin" data-i18n="f_signin" hidden>Sign in</button>
+      <button class="uplink" type="button" id="f-signout" data-i18n="f_signout" hidden>Sign out</button>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">&copy; 2026 UNWRITTEN &hearts;</span>
+      <button class="uplink totop" type="button" id="up" data-i18n="f_top">Back to top ↑</button>
+    </div>
   </footer>
 </div>
 

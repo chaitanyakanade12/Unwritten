@@ -588,7 +588,6 @@ html[data-theme="dark"] .profile-card #profile-delete{color:#FF8A8A}
 
 /* ---------- phones: calmer, roomier layout (desktop untouched) ---------- */
 @media(max-width:600px){
-  #wind{opacity:.55}
   .card{padding:26px 18px 22px;filter:drop-shadow(4px 5px 0 var(--edge))}
   .card::after{width:34px;height:34px}
   .hero{gap:28px}
@@ -605,3 +604,29 @@ html[data-theme="dark"] .profile-card #profile-delete{color:#FF8A8A}
   .why h2{font-size:clamp(1.9rem,8vw,2.4rem);margin:6px 0 14px}
   .foot{margin-top:44px}
 }
+
+/* ---------- guest sign-in button (top right) ---------- */
+.guest-btn{display:inline-flex;align-items:center;gap:8px;flex:none;height:44px;padding:0 16px 0 12px;border:2px solid var(--ink);border-radius:999px;background:var(--cream);color:var(--ink);font:800 .95rem var(--f-body);cursor:pointer;box-shadow:3px 4px 0 var(--ink);transition:translate .15s,box-shadow .15s}
+.guest-btn[hidden]{display:none}
+.guest-btn:hover{translate:0 -2px;box-shadow:3px 6px 0 var(--ink)}
+.guest-btn:active{translate:2px 3px;box-shadow:1px 1px 0 var(--ink)}
+@media(max-width:560px){.guest-btn{width:40px;height:40px;padding:0;justify-content:center}.guest-label{display:none}}
+
+/* ---------- footer: lighter, modern ---------- */
+.foot{gap:18px;margin-top:80px;padding-top:28px;border-top:1px solid color-mix(in srgb,currentColor 35%,transparent)}
+.foot-top{flex-direction:column;align-items:flex-start;gap:2px}
+.foot .brand{font-size:clamp(2rem,7vw,3rem);line-height:1;letter-spacing:.03em}
+.foot .tagline{font-size:1.25rem;opacity:.9}
+.foot-links{gap:10px;align-items:center}
+.foot .uplink{min-height:40px;padding:6px 16px;border:2px solid currentColor;border-radius:999px;text-decoration:none;font-weight:800;font-size:.9rem;transition:translate .15s,box-shadow .15s}
+.foot .uplink:hover{translate:0 -2px;box-shadow:3px 4px 0 currentColor}
+.foot .datamenu{display:inline-block}
+.foot .datamenu[open]{display:block;width:100%}
+.foot .datamenu[open] summary{margin-bottom:10px}
+.foot-links.sub{gap:10px}
+.foot .acct-text{font-size:.9rem;font-weight:700;opacity:.9}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:6px}
+.foot-copy{font-size:.85rem;font-weight:700;opacity:.8}
+.foot .totop{border-color:transparent;padding-inline:8px}
+.foot .totop:hover{box-shadow:none}
+body:not(.locked) #login{background:rgba(42,11,11,.58)}   /* pop-up over the site gets a soft backdrop */
