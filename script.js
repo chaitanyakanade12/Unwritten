@@ -988,6 +988,7 @@ function cleanLetter(o){
   return r;
 }
 const L=Object.assign({},L0,cleanLetter(parse(store.get(K.letter),{})));
+if(!L.body.trim())L.date=todayISO();      /* an unwritten letter always shows today's date */
 const letterText=()=>[L.greet,'',L.body,'',L.sign,L.from].join('\n').trim();
 
 function layoutLetter(preview){
