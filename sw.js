@@ -1,6 +1,6 @@
 /* UNWRITTEN service worker: keeps the site working offline.
    Network first (so your edits show up straight away), cache as the fallback. */
-const CACHE = 'unwritten-v41'; /* mobile polish */
+const CACHE = 'unwritten-v42'; /* mobile polish */
 const FILES = [
   './', 'index.html', 'style.css', 'script.js', 'sync.js', 'firebase-config.js', 'manifest.webmanifest', 'favicon-16.png', 'favicon-32.png', 'icon-192.png', 'icon-512.png',
   'fonts/anton-latin-400-normal.woff2',

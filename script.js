@@ -961,6 +961,9 @@ const THEMES={
     ['spark',196,284,10,0,3],['dot',183,291,4,0,2],['star',10,11,6,0,2],['dot',21,6,3,0,1]]},
   frame:{name:'Frame',icon:'🖼️',paper:'cream',cols:['#E8A317'],frame:[[6,5,.7,.75],[9.5,3,.3,.5]],items:[
     ['spark',6,6,7,0,0],['spark',204,6,7,0,0],['spark',6,291,7,0,0],['spark',204,291,7,0,0]]},
+  victorian:{name:'Victorian',icon:'📜',paper:'cream',cols:['#6B2737','#B08D57'],frame:[[6,1,.9,.85,'#6B2737'],[8,.6,.3,.8,'#B08D57'],[9.2,.4,.2,.6,'#6B2737']],items:[
+    ['star',6,6,5,0,1],['star',204,6,5,0,1],['star',6,291,5,0,1],['star',204,291,5,0,1],
+    ['dot',105,6,2.4,0,1],['dot',105,291,2.4,0,1]]},
   /* --- Phase 1: six new themes --- */
   /* decorations are in corners/margins only so they stay behind the text */
   rainy:{name:'Rainy Day',icon:'🌧️',paper:'sky',cols:['#5B8DB8','#8EB8D8','#3A6A90','#A8C8E0'],items:[
@@ -1015,7 +1018,7 @@ const deco=t=>{const x=THEMES[t];return x&&(x.items||x.frame)?x:null};
 function decoSVG(t){
   const th=deco(t);if(!th)return'';
   let s='<svg viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
-  for(const[i,r,w,a]of th.frame||[])s+=`<path d="${rr(i,i,210-2*i,297-2*i,r)}" fill="none" stroke="#1B2559" stroke-width="${w}" opacity="${a}"/>`;
+  for(const[i,r,w,a,fc='#1B2559']of th.frame||[])s+=`<path d="${rr(i,i,210-2*i,297-2*i,r)}" fill="none" stroke="${fc}" stroke-width="${w}" opacity="${a}"/>`;
   for(const[k,x,y,sz,rot,ci,al=.92]of th.items||[]){
     s+=`<g transform="translate(${x} ${y}) rotate(${rot}) scale(${sz/100}) translate(-50 -50)" opacity="${al}"><path d="${SH[k].d}" fill="${th.cols[ci]}"/>`+(SH[k].c2?`<path d="${SH[k].c2}" fill="#FFD43B"/>`:'')+'</g>';
   }
@@ -1023,8 +1026,8 @@ function decoSVG(t){
 }
 function drawDeco(ctx,t){
   const th=deco(t);if(!th)return;
-  for(const[i,r,w,a]of th.frame||[]){
-    ctx.save();ctx.scale(MM,MM);ctx.globalAlpha=a;ctx.strokeStyle='#1B2559';ctx.lineWidth=w;
+  for(const[i,r,w,a,fc='#1B2559']of th.frame||[]){
+    ctx.save();ctx.scale(MM,MM);ctx.globalAlpha=a;ctx.strokeStyle=fc;ctx.lineWidth=w;
     ctx.stroke(new Path2D(rr(i,i,210-2*i,297-2*i,r)));ctx.restore();
   }
   for(const[k,x,y,sz,rot,ci,al=.92]of th.items||[]){
@@ -1107,6 +1110,7 @@ const STARTS={
   thanks:['Thank you for…','I never said thank you for…'],
   sorry:["I'm sorry that…",'I should have said…'],
   missing:['I miss you because…','Remember when…'],
+  victorian:['Dear Sir or Madam,','With the greatest respect…','I write to thank you for…'],
   congrats:['Congratulations on…','I always knew you would…'],
   friendship:['Remember when…','You are the kind of friend who…']
 };

@@ -712,3 +712,21 @@ html[data-theme="dark"] .ink-ripple{background:rgba(255,241,222,.25)}
   color:#8E1224;text-shadow:0 1px 0 rgba(255,255,255,.35);font:400 clamp(1.4rem,6vw,2rem)/1 var(--f-display);opacity:0;animation:sealthump .5s cubic-bezier(.2,.8,.3,1.2) 2.05s both}
 @keyframes sealthump{0%{opacity:0;transform:scale(2.4)}60%{opacity:1;transform:scale(.92)}100%{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.seal-scene{display:none}}
+
+/* ---------- calmer, more refined (frosted pop-ups, editorial reading, wabi-sabi zen) ---------- */
+/* 1. windows that open over the site: frosted glass backdrop */
+#privacy,#profile,body:not(.locked) #login{background:rgba(42,11,11,.38);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1)}
+/* 2. blog reader: a magazine page, with a narrow column and a drop cap */
+.reader .prose{max-width:60ch;margin-inline:auto}
+.reader .prose p{font-size:1.18rem;line-height:1.8}
+.reader .prose p:first-child{font-size:1.34rem;line-height:1.7}   /* a larger opening paragraph, like a magazine standfirst */
+.reader h2{max-width:20ch;text-wrap:balance}
+.reader .meta{letter-spacing:.02em}
+.reader .tag{letter-spacing:.14em}
+/* 3. zen: quiet linen, a little grain, slower and softer */
+.field.zen{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .55 -.2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E"),radial-gradient(circle at 50% 0,#F3EBDD,#E9DEC9);color:#3A3027;animation-duration:1.4s}
+.field.zen textarea{color:#3A3027;font-size:clamp(1.25rem,3.8vw,1.7rem);line-height:1.9}
+.field.zen>label,.zencount{color:#6B5E4F}
+html[data-theme="dark"] .field.zen{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 .4 -.1'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E"),radial-gradient(circle at 50% 0,#26201B,#17130F);color:#E9DFCF}
+html[data-theme="dark"] .field.zen textarea{color:#E9DFCF}
+html[data-theme="dark"] .field.zen>label,html[data-theme="dark"] .zencount{color:#B5A793}
