@@ -21,7 +21,7 @@
   --f-hand:'Kalam','Segoe Print','Bradley Hand',cursive;
   --spring:cubic-bezier(.34,1.56,.64,1);
   --bg:var(--orange); --edge:#C24A08; --accent:#E5500C; --onbg:var(--ink);
-  color-scheme:light;
+  color-scheme:only light;   /* tells phone browsers not to auto-darken the page */
 }
 body[data-page="blog"]{--bg:var(--blue);--edge:#1450B0;--accent:#1F5FD0;--onbg:#fff}
 body[data-page="notes"]{--bg:var(--coral);--edge:#C8303F;--accent:#D12A42;--onbg:var(--ink)}
@@ -634,3 +634,81 @@ body:not(.locked) #login{background:rgba(42,11,11,.58)}   /* pop-up over the sit
 /* short "how it works" line above the writing box */
 .howto{font-size:.92rem;font-weight:600;line-height:1.45;padding:8px 12px;border-radius:10px;background:rgba(0,0,0,.06);border-left:4px solid var(--accent)}
 .facts .privacy{color:var(--muted)}
+
+/* ---------- personal touches: paper grain, ink stamp, wet ink ---------- */
+.card{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .55 -.2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E"),linear-gradient(225deg,transparent 30px,var(--cream) 0)}
+.stamp{position:fixed;left:50%;top:38%;z-index:90;pointer-events:none;translate:-50% -50%;rotate:-9deg;
+  padding:6px 26px 2px;border:6px double #D12A42;border-radius:10px;color:#D12A42;
+  font:400 clamp(2.6rem,12vw,4.4rem)/1.1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(255,255,255,.12);mix-blend-mode:multiply;opacity:0;animation:thump 1.8s ease both}
+html[data-theme="dark"] .stamp{color:#FF8A8A;border-color:#FF8A8A;mix-blend-mode:normal}
+@keyframes thump{
+  0%{opacity:0;scale:2.4}
+  14%{opacity:.92;scale:.94}
+  22%{scale:1.04}
+  30%{scale:1}
+  75%{opacity:.92}
+  100%{opacity:0}
+}
+.note.fresh p{animation:wetink 1.8s ease-out both}
+@keyframes wetink{
+  0%{opacity:.35;filter:blur(2.2px);text-shadow:0 0 6px currentColor}
+  100%{opacity:1;filter:blur(0);text-shadow:none}
+}
+@media(prefers-reduced-motion:reduce){.stamp,.note.fresh p{animation:none}}
+
+/* ---------- Home: from your past + your week ---------- */
+.recap-row{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-top:44px;align-items:start}
+.recap-row:not(:has(>:not([hidden]))){display:none}
+.mem{min-height:0;gap:8px}
+.mem-when{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
+.mem-title{font-family:var(--f-display);font-weight:400;font-size:1.6rem;text-transform:uppercase;line-height:1.05}
+.mem-text{font-family:var(--f-hand);font-size:1.2rem;line-height:1.35}
+.mem-go{align-self:flex-start;font:800 .9rem var(--f-body);color:var(--ink);background:none;border:0;padding:8px 0;min-height:40px;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.recap-nums{display:flex;gap:34px;margin:6px 0 12px}
+.recap-nums b{display:block;font-family:var(--f-display);font-weight:400;font-size:3rem;line-height:1}
+.recap-nums span{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.recap-msg{font-family:var(--f-hand);font-weight:700;font-size:1.3rem;margin-bottom:14px}
+@media(max-width:600px){.recap-row{margin-top:34px;gap:26px}}
+
+/* ---------- gentle motion (all switched off for "reduce motion") ---------- */
+/* handwriting that writes itself */
+.scribble{animation:penwrite 1.1s cubic-bezier(.3,.6,.3,1) .35s both}
+@keyframes penwrite{from{clip-path:inset(-12px 100% -12px 0)}to{clip-path:inset(-12px -12px -12px 0)}}
+.why .scribble{animation:none;clip-path:inset(-12px 100% -12px 0)}
+.why .scribble.drawn{animation:penwrite 1.1s cubic-bezier(.3,.6,.3,1) both}
+/* notes sway a little, as if the same wind moves them */
+@keyframes sway{from{rotate:-.5deg}to{rotate:.5deg}}
+.wn,.wall .note:nth-child(-n+8){animation:sway 5.5s ease-in-out infinite alternate}
+.wn:nth-child(2),.wall .note:nth-child(even){animation-duration:6.5s;animation-delay:-2s}
+.wn:nth-child(3),.wall .note:nth-child(3n){animation-duration:7.5s;animation-delay:-4s}
+/* streak flame: a small diya that grows with the streak */
+.flame{display:inline-block;align-self:center;width:14px;height:22px;margin-right:2px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+  background:radial-gradient(ellipse at 50% 70%,#FFF3A8 0 22%,#FFB02E 48%,#FF5A1F 100%);transform-origin:50% 100%;animation:flicker 1.8s ease-in-out infinite;box-shadow:0 0 10px 2px rgba(255,150,40,.45)}
+.flame.f2{width:17px;height:27px;box-shadow:0 0 14px 4px rgba(255,150,40,.55)}
+.flame.f3{width:20px;height:32px;box-shadow:0 0 20px 6px rgba(255,150,40,.65)}
+@keyframes flicker{0%,100%{transform:scale(1,1) rotate(-2deg)}25%{transform:scale(.95,1.06) rotate(2deg)}55%{transform:scale(1.04,.95) rotate(-1deg)}80%{transform:scale(.97,1.04) rotate(1.5deg)}}
+/* tap ink */
+.ink-ripple{position:fixed;z-index:95;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;pointer-events:none;background:rgba(42,11,11,.22);animation:inkbloom .6s ease-out forwards}
+html[data-theme="dark"] .ink-ripple{background:rgba(255,241,222,.25)}
+@keyframes inkbloom{to{transform:scale(7);opacity:0}}
+@media(prefers-reduced-motion:reduce){.scribble,.why .scribble.drawn,.wn,.wall .note,.flame,.ink-ripple{animation:none}.why .scribble{clip-path:none}}
+
+/* ---------- letter sealing: paper into envelope, wax seal ---------- */
+.seal-scene{position:fixed;inset:0;z-index:92;display:grid;place-items:center;pointer-events:none;background:rgba(42,11,11,.55);animation:sealfade 3.3s ease both}
+@keyframes sealfade{0%{opacity:0}10%{opacity:1}85%{opacity:1}100%{opacity:0}}
+.env{position:relative;width:min(76vw,320px);aspect-ratio:3/2;perspective:900px;rotate:-3deg;animation:envfloat 3.3s ease both}
+@keyframes envfloat{0%{transform:translateY(30px) scale(.92)}12%{transform:none}78%{transform:none;opacity:1}100%{transform:translateY(-50px);opacity:0}}
+.env>div{position:absolute}
+.env-back{inset:0;background:#E3C896;border-radius:6px;box-shadow:8px 10px 0 rgba(0,0,0,.28)}
+.env-sheet{left:7%;right:7%;top:4%;height:88%;background:#FBF3E4;border-radius:3px;box-shadow:0 0 0 1px rgba(42,11,11,.12);
+  background-image:repeating-linear-gradient(#FBF3E4 0 17px,rgba(60,80,140,.22) 17px 18px);animation:sheetin 1s cubic-bezier(.3,.7,.3,1) .3s both}
+@keyframes sheetin{from{transform:translateY(-135%) rotate(2deg)}to{transform:translateY(8%) rotate(0)}}
+.env-front{left:0;right:0;top:0;height:100%;background:#D9BC86;border-radius:0 0 6px 6px;clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%)}
+.env-flap{left:0;right:0;top:0;height:56%;background:#CDAE76;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;animation:flapclose .6s ease-in 1.35s both}
+@keyframes flapclose{from{transform:rotateX(180deg)}to{transform:rotateX(0)}}
+.env-seal{left:50%;top:56%;width:20%;aspect-ratio:1;margin:-10% 0 0 -10%;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#F0606E,#C21F33 55%,#8E1224);box-shadow:0 3px 0 rgba(0,0,0,.3),inset 0 0 0 4px rgba(255,255,255,.12);
+  color:#8E1224;text-shadow:0 1px 0 rgba(255,255,255,.35);font:400 clamp(1.4rem,6vw,2rem)/1 var(--f-display);opacity:0;animation:sealthump .5s cubic-bezier(.2,.8,.3,1.2) 2.05s both}
+@keyframes sealthump{0%{opacity:0;transform:scale(2.4)}60%{opacity:1;transform:scale(.92)}100%{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.seal-scene{display:none}}

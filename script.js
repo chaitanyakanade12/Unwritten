@@ -106,6 +106,11 @@ function noteShape(ctx,x,y,w,hh){
   ctx.lineTo(x+w,y+hh-br);ctx.quadraticCurveTo(x+w,y+hh,x+w-br,y+hh);
   ctx.lineTo(x+r,y+hh);ctx.quadraticCurveTo(x,y+hh,x,y+hh-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();
 }
+function stampPop(label){                      /* an ink stamp thumps onto the screen, then fades */
+  if(reduceMotion())return;
+  const el=h('div',{class:'stamp','aria-hidden':'true'},label);
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1900);
+}
 function confettiPop(originEl){
   if(reduceMotion())return;
   const box=h('div',{class:'pop-confetti','aria-hidden':'true'});
@@ -187,7 +192,7 @@ const I18N={
     how_blog:'<b>Normal:</b> pick a topic, write, save. <b>Zen:</b> just you and the page. Zero noise.',how_letter:'<b>Normal:</b> pick your paper and vibe, then print. <b>Zen:</b> just you and the page. Zero noise.',fact_title:'Scroll less, write a little',fact1:'<b>Scrolling</b> fills your head with other people’s thoughts. Writing gives you yours back.',fact2:'<b>Putting a feeling into words</b> tends to make it feel smaller. Researchers call this affect labelling.',fact3:'<b>Studies</b> link long stretches of doomscrolling with more stress, and expressive writing with a slightly better mood.',fact_note:'Just research, not medical advice. A few lines a day is plenty.',why_privacy:'Your writing stays on this device. If you sign in, it is saved to your own private account and shown to no one else.',
     login_title:'Welcome back',signup_title:'Create your account',login_sub:'Sign in to keep your writing safe and see it on every device.',login_google:'Continue with Google',login_or:'or use your email',login_email:'Email',login_pass:'Password',login_signin:'Sign in',signup_go:'Create account',login_to_signup:'New here? Create an account',login_to_signin:'Already have an account? Sign in',login_forgot:'Forgot password?',login_guest:'Continue without an account',login_privacy:'Your writing is saved to your own private account. Signing out removes it from this device.',f_signin:'Sign in',f_signout:'Sign out',f_signout_confirm:'Tap again to sign out',acct_as:'Signed in as ',sync_saved:'Saved to your account',sync_wait:'Syncing…',sync_off:'Offline. Will sync later',err_creds:'Wrong email or password.',err_exists:'An account with this email already exists. Try signing in.',err_weak:'Use a password with at least 8 characters.',err_email:'Please enter a valid email.',err_many:'Too many tries. Please wait a little and try again.',err_net:'No internet. Please check your connection.',err_popup:'The pop-up was blocked. Allow pop-ups or use your email.',err_generic:'Something went wrong. Please try again.',reset_sent:'Password reset link sent to your email.',need_email:'Type your email above first.',offline_login:'You need internet to sign in.',
     profile_open:'Open profile',profile_close:'Close profile',profile_title:'Your profile',profile_help:'A little about your UNWRITTEN account.',profile_name:'Display name',profile_name_placeholder:'Your name',profile_photo:'Profile photo URL',profile_photo_placeholder:'https://…',profile_photo_error:'Use an https image address or a file on this site.',profile_save:'Save profile',profile_saving:'Saving…',profile_saved:'Your profile was saved.',profile_name_required:'Please add a name first.',profile_save_error:'Could not save your profile. Please try again.',profile_offline:'Profile settings need an internet connection.',profile_posts:'posts',profile_notes:'notes',profile_days:'writing days',profile_activity:'Writing activity',profile_privacy:'Your writing is private to your account. Signing out removes its copy from this device.',profile_reset:'Reset password',
-    streak_total:'{n} days written',counts:'That counts. {n} days written so far.',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
+    streak_total:'{n} days written',counts:'That counts. {n} days written so far.',mem_ago:'{n} days ago you wrote',mem_read:'Read it again →',recap_title:'Your week',recap_days:'days written',recap_words:'words',recap_save:'Save as image',recap_m1:'A start is a start.',recap_m2:'Nice rhythm. Keep it gentle.',recap_m3:'That is a real habit.',stamp_ms:'{n} DAYS',stamp_saved:'SAVED',stamp_stuck:'STUCK',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
     f_privacy:'Privacy',privacy_title:'Privacy, in plain words',privacy_close:'Close',privacy_link:'Privacy',
     privacy_p1:'If you do not sign in, everything you write stays in this browser and goes nowhere.',
     privacy_p2:'If you sign in, we keep your email and four things: your posts, notes, letter and writing days. Nothing else. No ads and no trackers.',
@@ -251,7 +256,7 @@ const I18N={
     how_blog:'<b>नॉर्मल:</b> विषय निवडा, लिहा, जतन करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',how_letter:'<b>नॉर्मल:</b> कागद आणि मूड निवडा, मग प्रिंट करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',fact_title:'स्क्रोल कमी, लिहा थोडं',fact1:'<b>स्क्रोलिंग</b> डोक्यात इतरांचे विचार भरतं. लिहिल्याने तुमचे स्वतःचे विचार परत मिळतात.',fact2:'<b>भावना शब्दांत मांडली</b> की ती छोटी वाटू लागते. संशोधक याला affect labelling म्हणतात.',fact3:'<b>अभ्यासांनुसार</b> जास्त वेळ दुःखद बातम्या स्क्रोल केल्याने ताण वाढतो, आणि मनातलं लिहिल्याने मूड थोडा सुधारतो.',fact_note:'हे फक्त संशोधन आहे, वैद्यकीय सल्ला नव्हे. रोज थोड्या ओळी पुरेशा आहेत.',why_privacy:'तुमचे लिखाण याच उपकरणावर राहते. साइन इन केल्यास ते तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते आणि दुसऱ्या कुणालाही दिसत नाही.',
     login_title:'पुन्हा स्वागत',signup_title:'खाते तयार करा',login_sub:'तुमचे लिखाण सुरक्षित ठेवण्यासाठी आणि सर्व उपकरणांवर पाहण्यासाठी साइन इन करा.',login_google:'Google ने पुढे जा',login_or:'किंवा ईमेल वापरा',login_email:'ईमेल',login_pass:'पासवर्ड',login_signin:'साइन इन',signup_go:'खाते तयार करा',login_to_signup:'नवीन आहात? खाते तयार करा',login_to_signin:'आधीच खाते आहे? साइन इन करा',login_forgot:'पासवर्ड विसरलात?',login_guest:'खात्याशिवाय पुढे जा',login_privacy:'तुमचे लिखाण तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते. साइन आउट केल्यावर ते या उपकरणातून काढले जाते.',f_signin:'साइन इन',f_signout:'साइन आउट',f_signout_confirm:'साइन आउटसाठी पुन्हा टॅप करा',acct_as:'साइन इन: ',sync_saved:'खात्यात जतन झाले',sync_wait:'समक्रमित होत आहे…',sync_off:'ऑफलाइन. नंतर समक्रमित होईल',err_creds:'ईमेल किंवा पासवर्ड चुकीचा आहे.',err_exists:'या ईमेलचे खाते आधीच आहे. साइन इन करा.',err_weak:'पासवर्ड किमान ८ अक्षरांचा ठेवा.',err_email:'कृपया योग्य ईमेल लिहा.',err_many:'खूप प्रयत्न झाले. थोड्या वेळाने पुन्हा करा.',err_net:'इंटरनेट नाही. कनेक्शन तपासा.',err_popup:'पॉप-अप अडवला गेला. परवानगी द्या किंवा ईमेल वापरा.',err_generic:'काहीतरी चुकले. पुन्हा प्रयत्न करा.',reset_sent:'पासवर्ड रीसेटची लिंक ईमेलवर पाठवली.',need_email:'आधी वरती ईमेल लिहा.',offline_login:'साइन इन करण्यासाठी इंटरनेट हवे.',
     profile_open:'प्रोफाइल उघडा',profile_close:'प्रोफाइल बंद करा',profile_title:'तुमचे प्रोफाइल',profile_help:'तुमच्या UNWRITTEN खात्याची थोडी माहिती.',profile_name:'दिसणारे नाव',profile_name_placeholder:'तुमचे नाव',profile_photo:'प्रोफाइल फोटोची लिंक',profile_photo_placeholder:'https://…',profile_photo_error:'https लिंक किंवा या साइटवरील फोटो वापरा.',profile_save:'प्रोफाइल जतन करा',profile_saving:'जतन होत आहे…',profile_saved:'तुमचे प्रोफाइल जतन झाले.',profile_name_required:'कृपया आधी नाव लिहा.',profile_save_error:'प्रोफाइल जतन झाले नाही. पुन्हा प्रयत्न करा.',profile_offline:'प्रोफाइल बदलण्यासाठी इंटरनेट कनेक्शन आवश्यक आहे.',profile_posts:'ब्लॉग',profile_notes:'चिठ्ठ्या',profile_days:'लेखनाचे दिवस',profile_activity:'लेखनाची माहिती',profile_privacy:'तुमचे लिखाण तुमच्या खात्यात खाजगी राहते. साइन आउट केल्यावर त्याची प्रत या उपकरणातून काढली जाते.',profile_reset:'पासवर्ड रीसेट करा',
-    streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
+    streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',mem_ago:'{n} दिवसांपूर्वी तुम्ही लिहिले',mem_read:'पुन्हा वाचा →',recap_title:'तुमचा आठवडा',recap_days:'दिवस लिहिले',recap_words:'शब्द',recap_save:'इमेज म्हणून जतन करा',recap_m1:'सुरुवात ही सुरुवातच असते.',recap_m2:'छान लय. सावकाश चालू ठेवा.',recap_m3:'ही खरी सवय आहे.',stamp_ms:'{n} दिवस',stamp_saved:'जतन',stamp_stuck:'चिकटवले',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
     f_privacy:'गोपनीयता',privacy_title:'गोपनीयता, सोप्या शब्दांत',privacy_close:'बंद करा',privacy_link:'गोपनीयता',
     privacy_p1:'तुम्ही साइन इन केले नाही, तर तुम्ही लिहिलेले सर्व याच ब्राउझरमध्ये राहते आणि कुठेही जात नाही.',
     privacy_p2:'साइन इन केल्यास आम्ही तुमचा ईमेल आणि चार गोष्टी ठेवतो: पोस्ट, नोट्स, पत्र आणि लिहिलेले दिवस. आणखी काही नाही. जाहिराती नाहीत, ट्रॅकर्स नाहीत.',
@@ -359,6 +364,7 @@ function route(){
   /* leaving a page closes its zen box */
   if(p!=='letter'&&zens.l)zens.l(false);
   if(p!=='blog'&&zens.p)zens.p(false);
+  if(p==='home'){renderMemory();renderRecap()}
   window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);
@@ -399,13 +405,62 @@ function streakCount(){                       /* one free rest day a week keeps 
   }
   return n;
 }
+/* ---------- "from your past" and "your week" (Home) ---------- */
+const DAY=864e5;
+function myEntries(){                           /* everything the person wrote, with a time */
+  const out=[];
+  mine.forEach(p=>{if(isDay(p.date))out.push({kind:'post',id:p.id,at:new Date(p.date+'T12:00:00').getTime(),title:p.title,text:p.body})});
+  notes.forEach(n=>{const m=/^n(\d{10,})$/.exec(n.id||'');if(m)out.push({kind:'note',at:+m[1],title:'',text:n.t||''})});
+  return out;
+}
+function renderMemory(){
+  const box=$('#memory'),now=Date.now();let best=null;
+  myEntries().forEach(e=>{const age=(now-e.at)/DAY;if(age<7||age>60)return;const sc=Math.abs(age-30);if(!best||sc<best.sc)best={...e,age:Math.round(age),sc}});
+  box.hidden=!best;if(!best)return;
+  const snip=best.text.replace(/\s+/g,' ').slice(0,130)+(best.text.length>130?'…':'');
+  box.replaceChildren(
+    h('p',{class:'mem-when'},t('mem_ago','{n} days ago you wrote').replace('{n}',best.age)),
+    best.title?h('h3',{class:'mem-title'},best.title):null,
+    h('p',{class:'mem-text'},snip),
+    h('button',{class:'mem-go',type:'button',onclick:()=>{if(best.kind==='post'){openId=best.id;confirmDel=false;renderBlog()}location.hash=best.kind==='post'?'#blog':'#notes'}},t('mem_read','Read it again →')));
+}
+function renderRecap(){
+  const box=$('#recap'),now=Date.now();let done=0;
+  for(let i=0;i<7;i++){const d=new Date();d.setDate(d.getDate()-i);if(days.has(keyOf(d)))done++}
+  box.hidden=!done;if(!done)return;
+  const w=myEntries().filter(e=>e.at>now-7*DAY&&e.at<=now+DAY).reduce((a,e)=>a+words(e.text)+words(e.title),0);
+  const msg=done>=5?t('recap_m3','That is a real habit.'):done>=3?t('recap_m2','Nice rhythm. Keep it gentle.'):t('recap_m1','A start is a start.');
+  box.replaceChildren(
+    h('p',{class:'eyebrow'},t('recap_title','Your week')),
+    h('div',{class:'recap-nums'},
+      h('div',{},h('b',{},done+'/7'),h('span',{},t('recap_days','days written'))),
+      h('div',{},h('b',{},String(w)),h('span',{},t('recap_words','words')))),
+    h('p',{class:'recap-msg'},msg),
+    h('button',{class:'btn ghost',type:'button',onclick:()=>saveRecap(done,w,msg)},t('recap_save','Save as image')));
+}
+async function saveRecap(done,w,msg){
+  try{await Promise.all([document.fonts.load('200px Anton'),document.fonts.load('700 60px Kalam')])}catch(e){}
+  const S=1080,cv=h('canvas',{width:S,height:S}),c=cv.getContext('2d');
+  c.fillStyle='#FF6A18';c.fillRect(0,0,S,S);
+  c.fillStyle='#C8500A';c.fillRect(110,130,860,860);
+  c.fillStyle='#F5E9D8';c.fillRect(90,110,860,860);
+  c.fillStyle='#2A0B0B';c.textAlign='left';
+  c.font='90px Anton';c.fillText(t('recap_title','Your week').toUpperCase(),150,240);
+  c.font='300px Anton';c.fillText(done+'/7',150,560);
+  c.font='700 60px Kalam';c.fillText(t('recap_days','days written'),150,640);
+  c.font='120px Anton';c.fillText(String(w),150,800);const nw=c.measureText(String(w)).width;c.font='700 52px Kalam';c.fillText(t('recap_words','words'),150+nw+24,800);
+  c.font='700 54px Kalam';c.fillText(msg,150,900);
+  c.font='60px Anton';c.textAlign='right';c.fillStyle='#fff';c.fillText('UNWRITTEN',S-60,S-14);
+  cv.toBlob(b=>b&&saveBlob('unwritten-my-week.png',b),'image/png');
+}
+
 function renderStreak(){
   const n=streakCount(),week=[];
   for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);week.push({d,today:i===0})}
   const done=week.filter(w=>days.has(keyOf(w.d))).length;
   const needNudge=n>0&&!days.has(todayISO());
   $('#streak').replaceChildren(...[
-    n?h('div',{class:'streak-n'},h('b',{},String(n)),h('span',{},t('streak_day','day streak'))):h('p',{class:'streak-empty'},t('streak_empty','Write something today to start your streak.')),
+    n?h('div',{class:'streak-n'},h('i',{class:'flame '+(n>=30?'f3':n>=7?'f2':'f1'),'aria-hidden':'true'}),h('b',{},String(n)),h('span',{},t('streak_day','day streak'))):h('p',{class:'streak-empty'},t('streak_empty','Write something today to start your streak.')),
     h('div',{class:'week',role:'img','aria-label':done+' of the last 7 days written'},
       week.map(w=>h('span',{class:'wd'+(days.has(keyOf(w.d))?' on':'')+(w.today?' today':'')},w.d.toLocaleDateString('en-GB',{weekday:'narrow'})))),
     days.size?h('span',{class:'streak-total'},t('streak_total','{n} days written').replace('{n}',days.size)):null,
@@ -420,7 +475,8 @@ function cheer(){                             /* a kind word, once a day, after 
 }
 function markToday(quiet){
   const d=todayISO();
-  if(!days.has(d)){days.add(d);store.set(K.days,JSON.stringify([...days].sort().slice(-400)));renderStreak()}
+  if(!days.has(d)){days.add(d);store.set(K.days,JSON.stringify([...days].sort().slice(-400)));renderStreak();
+    const sn=streakCount();if(!quiet&&[7,30,100].includes(sn))setTimeout(()=>stampPop(t('stamp_ms','{n} DAYS').replace('{n}',sn)),2100)}
   if(!quiet)cheer();
 }
 
@@ -550,6 +606,7 @@ pf.addEventListener('submit',e=>{
   savePosts();store.del(K.draft);markToday();
   pf.reset();openComposer(false);
   renderBlog();toast(was?t('toast_saved','Changes saved'):t('toast_published','Post saved'));
+  stampPop(t('stamp_saved','SAVED'));
   if(!was)confettiPop(pf);
 });
 $('#prompt-blog').addEventListener('click',()=>{
@@ -845,6 +902,8 @@ $('#note-form').addEventListener('submit',e=>{
   saveNotes();markToday();
   nt.value='';$('#n-count').textContent='0 / 140';$('#n-go').disabled=true;
   renderWall();toast(t('toast_note_stuck','Note stuck on the wall'));
+  const fresh=$('#wall .note');if(fresh)fresh.classList.add('fresh');      /* ink looks wet, then dries */
+  stampPop(t('stamp_stuck','STUCK'));
   confettiPop($('#note-form'));
 });
 
@@ -988,7 +1047,7 @@ function cleanLetter(o){
   return r;
 }
 const L=Object.assign({},L0,cleanLetter(parse(store.get(K.letter),{})));
-if(!L.body.trim())L.date=todayISO();      /* an unwritten letter always shows today's date */
+if(!L.body.trim()&&L.date!==todayISO()){L.date=todayISO();try{localStorage.setItem(K.letter,JSON.stringify(L))}catch(e){}}   /* an unwritten letter shows today's date (saved quietly, so it never counts as a change to sync) */
 const letterText=()=>[L.greet,'',L.body,'',L.sign,L.from].join('\n').trim();
 
 function layoutLetter(preview){
@@ -1126,13 +1185,23 @@ async function letterBlobs(){
 const letterNames=n=>{const base='unwritten-letter-'+(L.date||todayISO());return Array.from({length:n},(_,i)=>n>1?`${base}-page-${i+1}.png`:`${base}.png`)};
 const needText=()=>{if(L.body.trim())return true;toast('Write something first');return false};
 
+function sealLetter(){                          /* the letter slides into an envelope and a wax seal presses on */
+  if(reduceMotion())return;
+  try{
+    const sc=h('div',{class:'seal-scene','aria-hidden':'true'},
+      h('div',{class:'env'},
+        h('div',{class:'env-back'}),h('div',{class:'env-sheet'}),h('div',{class:'env-front'}),
+        h('div',{class:'env-flap'}),h('div',{class:'env-seal'},'U')));
+    document.body.appendChild(sc);setTimeout(()=>sc.remove(),3400);
+  }catch(e){}
+}
 $('#l-image').addEventListener('click',async()=>{
   if(!needText())return;
   try{
     toast(t('toast_making_img','Making your image…'));
     const blobs=await letterBlobs(),names=letterNames(blobs.length);
     for(let i=0;i<blobs.length;i++){saveBlob(names[i],blobs[i]);if(i<blobs.length-1)await wait(500)}
-    markToday();
+    markToday();sealLetter();
     toast(blobs.length>1?'Saved '+blobs.length+' page images. Allow multiple downloads if asked.':t('toast_img_saved','Letter image saved'));
   }catch(e){toast('Could not make the image. Try a shorter letter.')}
 });
@@ -1178,7 +1247,7 @@ $('#l-pdf').addEventListener('click',async()=>{
       pages.push({w:c.width,h:c.height,bytes:new Uint8Array(await b.arrayBuffer())});
     }
     saveBlob('unwritten-letter-'+(L.date||todayISO())+'.pdf',await makePDF(pages));
-    markToday();toast(t('toast_pdf_saved','PDF saved'));
+    markToday();sealLetter();toast(t('toast_pdf_saved','PDF saved'));
   }catch(e){toast('Could not make the PDF. Try a shorter letter.')}
 });
 /* print: the pages are drawn into the page itself, and the print style shows only them */
@@ -1310,6 +1379,22 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
 
 /* ---------- start ---------- */
 /* ---------- soft wind: the same dot grid, drifting on a slow breeze ---------- */
+/* ---------- small touches: ink ripple on tap, scribbles that write themselves ---------- */
+(function touches(){
+  if(reduceMotion())return;
+  addEventListener('pointerdown',e=>{
+    const el=e.target.closest&&e.target.closest('button,.btn,.door,.chip,.m-item');
+    if(!el||el.disabled)return;
+    const r=h('span',{class:'ink-ripple','aria-hidden':'true',style:`left:${e.clientX}px;top:${e.clientY}px`});
+    document.body.appendChild(r);setTimeout(()=>r.remove(),650);
+  },{passive:true});
+  if('IntersectionObserver' in window){
+    /* watch the paragraph just above each scribble (a clipped element can't be observed reliably) */
+    const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.nextElementSibling.classList.add('drawn');io.unobserve(x.target)}}),{rootMargin:'0px 0px -15% 0px'});
+    $$('.why .scribble').forEach(el=>{const p=el.previousElementSibling;p?io.observe(p):el.classList.add('drawn')});
+  }else $$('.why .scribble').forEach(el=>el.classList.add('drawn'));
+})();
+
 (function wind(){
   const cv=document.createElement('canvas');cv.id='wind';cv.setAttribute('aria-hidden','true');
   document.body.prepend(cv);
