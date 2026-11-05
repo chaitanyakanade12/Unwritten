@@ -715,7 +715,7 @@ html[data-theme="dark"] .ink-ripple{background:rgba(255,241,222,.25)}
 
 /* ---------- calmer, more refined (frosted pop-ups, editorial reading, wabi-sabi zen) ---------- */
 /* 1. windows that open over the site: frosted glass backdrop */
-#privacy,#profile,body:not(.locked) #login{background:rgba(42,11,11,.38);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1)}
+#privacy,#profile,#pinset,body:not(.locked) #login{background:rgba(42,11,11,.38);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1)}
 /* 2. blog reader: a magazine page, with a narrow column and a drop cap */
 .reader .prose{max-width:60ch;margin-inline:auto}
 .reader .prose p{font-size:1.18rem;line-height:1.8}
@@ -730,3 +730,26 @@ html[data-theme="dark"] .ink-ripple{background:rgba(255,241,222,.25)}
 html[data-theme="dark"] .field.zen{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 .4 -.1'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E"),radial-gradient(circle at 50% 0,#26201B,#17130F);color:#E9DFCF}
 html[data-theme="dark"] .field.zen textarea{color:#E9DFCF}
 html[data-theme="dark"] .field.zen>label,html[data-theme="dark"] .zencount{color:#B5A793}
+
+/* ---------- letter to future me ---------- */
+.future{margin-top:44px;display:grid;gap:12px}
+.f-make{align-items:flex-end;gap:14px}
+.f-make .field{flex:1;min-width:150px}
+#f-list{display:grid;gap:12px}
+.f-item{padding:12px 14px;border-radius:12px;border:2px dashed #B4A48A;display:grid;gap:8px}
+.f-item.ready{border-style:solid;border-color:var(--accent);background:rgba(255,231,97,.25)}
+.f-line{font-weight:700;font-size:.95rem}
+.f-text{font-family:var(--f-hand);font-size:1.25rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.f-btns{display:flex;gap:10px;flex-wrap:wrap}
+.f-btns .btn{min-height:40px;padding:6px 16px}
+.recap-row>[hidden]{display:none}   /* an empty card must never show */
+
+/* ---------- app lock ---------- */
+html.pinlocked .wrap{visibility:hidden}
+#pinlock{z-index:100;background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+#pinset{z-index:75}
+.pin-dots{display:flex;gap:14px;justify-content:center;margin:6px 0 2px}
+.pin-dots i{width:18px;height:18px;border-radius:50%;border:2px solid var(--ink);background:transparent;transition:background-color .15s,scale .15s}
+.pin-dots i.on{background:var(--ink);scale:1.1}
+.pin-input{width:100%;text-align:center;letter-spacing:.7em;font:800 1.6rem var(--f-body);padding:10px 0 10px .7em;border:2px solid var(--ink);border-radius:14px;background:rgba(255,255,255,.6);color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.pin-dots i{transition:none}}

@@ -8,7 +8,7 @@ const on = !!(C.apiKey && !/^PASTE/.test(C.apiKey) && C.projectId && !/^PASTE/.t
 
 const $ = s => document.querySelector(s);
 const T = (k, fb) => (window.LihaT ? window.LihaT(k, fb) : fb || k);
-const NAMES = { posts: 'liha.posts', notes: 'liha.notes', letter: 'liha.letter', days: 'liha.days' };
+const NAMES = { posts: 'liha.posts', notes: 'liha.notes', letter: 'liha.letter', days: 'liha.days', future: 'liha.future' };
 const KEEP = ['liha.theme', 'liha.lang'];
 const ls = {
   get(k) { try { return localStorage.getItem(k) } catch (e) { return null } },
@@ -105,7 +105,7 @@ function nudge() {                              /* one gentle sign-in pop-up per
   let seen = false; try { seen = sessionStorage.getItem('liha.nudged') } catch {}
   if (seen) return;
   setTimeout(() => {
-    if (user || !$('#login').hidden) return;
+    if (user || !$('#login').hidden || document.documentElement.classList.contains('pinlocked')) return;
     const a = document.activeElement;
     if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
     try { sessionStorage.setItem('liha.nudged', '1') } catch {}
@@ -166,7 +166,7 @@ function merge(name, local, cloud) {
   try {
     const a = JSON.parse(local), b = JSON.parse(cloud);
     if (name === 'days') return JSON.stringify([...new Set([...a, ...b])].sort().slice(-400));
-    if (name === 'posts' || name === 'notes') {
+    if (name === 'posts' || name === 'notes' || name === 'future') {
       const have = new Set(b.map(x => x && x.id));
       return JSON.stringify([...a.filter(x => x && !have.has(x.id)), ...b]);
     }

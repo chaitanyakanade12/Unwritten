@@ -6,6 +6,8 @@
 <title>UNWRITTEN</title>
 <meta name="application-name" content="UNWRITTEN">
 <meta name="description" content="UNWRITTEN is a place for daily blogs, sticky notes and printable letters. A companion to your notebook, not a replacement.">
+<meta name="color-scheme" content="only light">
+<script>try{if(localStorage.getItem("liha.pin"))document.documentElement.classList.add("pinlocked")}catch(e){}</script>
 <meta name="theme-color" content="#FF6A18" id="theme-color">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNWRITTEN">
@@ -76,6 +78,11 @@
             <button class="btn ghost" type="button" id="prompt-next" data-i18n="prompt_next">Another prompt</button>
           </div>
         </aside>
+      </div>
+
+      <div class="recap-row">
+        <aside class="mem note" id="memory" hidden style="--c:#FFE761;--r:-1.2deg"></aside>
+        <aside class="card recap" id="recap" hidden></aside>
       </div>
 
       <div class="doors">
@@ -222,6 +229,17 @@
           </div>
         </div>
       </div>
+
+      <section class="card future" id="future">
+        <h3 class="form-title" data-i18n="f_title">Letter to future me</h3>
+        <p class="note-small" data-i18n="f_sub">Write your letter above, pick a day, and it stays sealed until then.</p>
+        <div class="row f-make">
+          <div class="field"><label for="f-date" data-i18n="f_label">Open on</label><input id="f-date" type="date"></div>
+          <button class="btn" type="button" id="f-seal" data-i18n="f_btn">Seal it</button>
+        </div>
+        <p class="note-small" id="f-none" data-i18n="f_none">Nothing sealed yet.</p>
+        <div id="f-list"></div>
+      </section>
     </section>
   </main>
 
@@ -268,6 +286,7 @@
       <button class="uplink" type="button" id="f-why" data-i18n="f_why">Why UNWRITTEN</button>
       <button class="uplink" type="button" id="f-lang">मराठी</button>
       <button class="uplink" type="button" id="f-privacy" data-i18n="f_privacy">Privacy</button>
+      <button class="uplink" type="button" id="f-lock" data-i18n="f_lock">App lock</button>
       <button class="uplink" type="button" id="f-install" data-i18n="f_install" hidden>Install app</button>
       <details class="datamenu">
         <summary class="uplink" data-i18n="f_data">Your data</summary>
@@ -355,6 +374,35 @@
     <button class="uplink" id="profile-reset" type="button" data-i18n="profile_reset">Reset password</button>
     <button class="uplink" id="profile-signout" type="button" data-i18n="f_signout">Sign out</button>
     <button class="uplink" id="profile-delete" type="button" data-i18n="profile_delete">Delete account</button>
+  </section>
+</div>
+
+<div class="login" id="pinlock" role="dialog" aria-modal="true" aria-labelledby="pin-title" hidden>
+  <section class="login-card card stack" tabindex="-1">
+    <span class="login-brand">UNWRITTEN</span>
+    <h2 class="form-title" id="pin-title" data-i18n="pin_title">Enter your PIN</h2>
+    <div class="pin-dots" id="pin-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <input class="pin-input" id="pin-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="PIN">
+    <p class="login-err" id="pin-err" role="alert"></p>
+    <button class="uplink" type="button" id="pin-forgot" data-i18n="pin_forgot">Forgot PIN?</button>
+  </section>
+</div>
+
+<div class="login" id="pinset" role="dialog" aria-modal="true" aria-labelledby="pinset-title" hidden>
+  <section class="login-card card stack" tabindex="-1">
+    <div class="profile-top">
+      <span class="login-brand">UNWRITTEN</span>
+      <button class="mini" id="pinset-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <h2 class="form-title" id="pinset-title" data-i18n="lock_title">App lock</h2>
+    <p class="note-small" data-i18n="lock_sub">Ask for a 4-digit PIN when you open UNWRITTEN. It keeps casual snoopers out. It is not encryption.</p>
+    <div class="field"><label for="pin-new" data-i18n="lock_new">New PIN</label><input id="pin-new" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off"></div>
+    <div class="field"><label for="pin-new2" data-i18n="lock_again">Repeat PIN</label><input id="pin-new2" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off"></div>
+    <p class="login-err" id="pinset-err" role="alert"></p>
+    <div class="row">
+      <button class="btn" type="button" id="pin-save" data-i18n="lock_on">Turn on</button>
+      <button class="btn ghost" type="button" id="pin-off" data-i18n="lock_off" hidden>Turn off</button>
+    </div>
   </section>
 </div>
 

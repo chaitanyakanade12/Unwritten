@@ -9,9 +9,9 @@
 
 /* ---------- helpers ---------- */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const K={posts:'liha.posts',notes:'liha.notes',letter:'liha.letter',days:'liha.days',draft:'liha.draft',hide:'liha.hideSamples',theme:'liha.theme',lang:'liha.lang'};
+const K={posts:'liha.posts',notes:'liha.notes',letter:'liha.letter',days:'liha.days',future:'liha.future',draft:'liha.draft',hide:'liha.hideSamples',theme:'liha.theme',lang:'liha.lang'};
 const zens={};                                   /* open/close functions of each zen box */
-const SYNCED={'liha.posts':'posts','liha.notes':'notes','liha.letter':'letter','liha.days':'days'}; /* these four are saved to the account when signed in */
+const SYNCED={'liha.posts':'posts','liha.notes':'notes','liha.letter':'letter','liha.days':'days','liha.future':'future'}; /* these five are saved to the account when signed in */
 const store={
   get(k){try{return localStorage.getItem(k)}catch(e){return null}},
   set(k,v){let same=false;try{same=localStorage.getItem(k)===v;localStorage.setItem(k,v)}catch(e){}const n=SYNCED[k];if(n&&!same&&window.LihaSync)window.LihaSync.push(n)},
@@ -192,7 +192,7 @@ const I18N={
     how_blog:'<b>Normal:</b> pick a topic, write, save. <b>Zen:</b> just you and the page. Zero noise.',how_letter:'<b>Normal:</b> pick your paper and vibe, then print. <b>Zen:</b> just you and the page. Zero noise.',fact_title:'Scroll less, write a little',fact1:'<b>Scrolling</b> fills your head with other people’s thoughts. Writing gives you yours back.',fact2:'<b>Putting a feeling into words</b> tends to make it feel smaller. Researchers call this affect labelling.',fact3:'<b>Studies</b> link long stretches of doomscrolling with more stress, and expressive writing with a slightly better mood.',fact_note:'Just research, not medical advice. A few lines a day is plenty.',why_privacy:'Your writing stays on this device. If you sign in, it is saved to your own private account and shown to no one else.',
     login_title:'Welcome back',signup_title:'Create your account',login_sub:'Sign in to keep your writing safe and see it on every device.',login_google:'Continue with Google',login_or:'or use your email',login_email:'Email',login_pass:'Password',login_signin:'Sign in',signup_go:'Create account',login_to_signup:'New here? Create an account',login_to_signin:'Already have an account? Sign in',login_forgot:'Forgot password?',login_guest:'Continue without an account',login_privacy:'Your writing is saved to your own private account. Signing out removes it from this device.',f_signin:'Sign in',f_signout:'Sign out',f_signout_confirm:'Tap again to sign out',acct_as:'Signed in as ',sync_saved:'Saved to your account',sync_wait:'Syncing…',sync_off:'Offline. Will sync later',err_creds:'Wrong email or password.',err_exists:'An account with this email already exists. Try signing in.',err_weak:'Use a password with at least 8 characters.',err_email:'Please enter a valid email.',err_many:'Too many tries. Please wait a little and try again.',err_net:'No internet. Please check your connection.',err_popup:'The pop-up was blocked. Allow pop-ups or use your email.',err_generic:'Something went wrong. Please try again.',reset_sent:'Password reset link sent to your email.',need_email:'Type your email above first.',offline_login:'You need internet to sign in.',
     profile_open:'Open profile',profile_close:'Close profile',profile_title:'Your profile',profile_help:'A little about your UNWRITTEN account.',profile_name:'Display name',profile_name_placeholder:'Your name',profile_photo:'Profile photo URL',profile_photo_placeholder:'https://…',profile_photo_error:'Use an https image address or a file on this site.',profile_save:'Save profile',profile_saving:'Saving…',profile_saved:'Your profile was saved.',profile_name_required:'Please add a name first.',profile_save_error:'Could not save your profile. Please try again.',profile_offline:'Profile settings need an internet connection.',profile_posts:'posts',profile_notes:'notes',profile_days:'writing days',profile_activity:'Writing activity',profile_privacy:'Your writing is private to your account. Signing out removes its copy from this device.',profile_reset:'Reset password',
-    streak_total:'{n} days written',counts:'That counts. {n} days written so far.',mem_ago:'{n} days ago you wrote',mem_read:'Read it again →',recap_title:'Your week',recap_days:'days written',recap_words:'words',recap_save:'Save as image',recap_m1:'A start is a start.',recap_m2:'Nice rhythm. Keep it gentle.',recap_m3:'That is a real habit.',stamp_ms:'{n} DAYS',stamp_saved:'SAVED',stamp_stuck:'STUCK',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
+    streak_total:'{n} days written',counts:'That counts. {n} days written so far.',mem_ago:'{n} days ago you wrote',mem_read:'Read it again →',recap_title:'Your week',recap_days:'days written',recap_words:'words',recap_save:'Save as image',recap_m1:'A start is a start.',recap_m2:'Nice rhythm. Keep it gentle.',recap_m3:'That is a real habit.',pin_title:'Enter your PIN',pin_forgot:'Forgot PIN?',pin_wrong:'Wrong PIN. Try again.',pin_wait:'Too many tries. Wait {n} seconds.',pin_reset:'Tap again to erase this device and remove the PIN',f_lock:'App lock',lock_title:'App lock',lock_sub:'Ask for a 4-digit PIN when you open UNWRITTEN. It keeps casual snoopers out. It is not encryption.',lock_new:'New PIN',lock_again:'Repeat PIN',lock_on:'Turn on',lock_off:'Turn off',lock_bad:'Use exactly 4 digits.',lock_mismatch:'The two PINs do not match.',lock_saved:'App lock is on',lock_removed:'App lock is off',quote_btn:'Quote card',quote_saved:'Quote card saved. Tip: select a line first to pick your own.',quote_title:'A line from UNWRITTEN',stamp_ms:'{n} DAYS',f_title:'Letter to future me',f_sub:'Write your letter above, pick a day, and it stays sealed until then.',f_label:'Open on',f_btn:'Seal it',f_none:'Nothing sealed yet.',f_opened:'Opened · written {d}',f_ready:'Ready to open · written {d}',f_sealed:'Sealed · opens {d} · {n} days to go',f_hide:'Close',f_open:'Open it',f_delete:'Delete',f_pick:'Pick a day in the future',f_done:'Sealed. See you on {d}.',f_home_when:'A letter from past you',f_home_title:'Ready to open',f_home_go:'Open it →',stamp_saved:'SAVED',stamp_stuck:'STUCK',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
     f_privacy:'Privacy',privacy_title:'Privacy, in plain words',privacy_close:'Close',privacy_link:'Privacy',
     privacy_p1:'If you do not sign in, everything you write stays in this browser and goes nowhere.',
     privacy_p2:'If you sign in, we keep your email and four things: your posts, notes, letter and writing days. Nothing else. No ads and no trackers.',
@@ -256,7 +256,7 @@ const I18N={
     how_blog:'<b>नॉर्मल:</b> विषय निवडा, लिहा, जतन करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',how_letter:'<b>नॉर्मल:</b> कागद आणि मूड निवडा, मग प्रिंट करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',fact_title:'स्क्रोल कमी, लिहा थोडं',fact1:'<b>स्क्रोलिंग</b> डोक्यात इतरांचे विचार भरतं. लिहिल्याने तुमचे स्वतःचे विचार परत मिळतात.',fact2:'<b>भावना शब्दांत मांडली</b> की ती छोटी वाटू लागते. संशोधक याला affect labelling म्हणतात.',fact3:'<b>अभ्यासांनुसार</b> जास्त वेळ दुःखद बातम्या स्क्रोल केल्याने ताण वाढतो, आणि मनातलं लिहिल्याने मूड थोडा सुधारतो.',fact_note:'हे फक्त संशोधन आहे, वैद्यकीय सल्ला नव्हे. रोज थोड्या ओळी पुरेशा आहेत.',why_privacy:'तुमचे लिखाण याच उपकरणावर राहते. साइन इन केल्यास ते तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते आणि दुसऱ्या कुणालाही दिसत नाही.',
     login_title:'पुन्हा स्वागत',signup_title:'खाते तयार करा',login_sub:'तुमचे लिखाण सुरक्षित ठेवण्यासाठी आणि सर्व उपकरणांवर पाहण्यासाठी साइन इन करा.',login_google:'Google ने पुढे जा',login_or:'किंवा ईमेल वापरा',login_email:'ईमेल',login_pass:'पासवर्ड',login_signin:'साइन इन',signup_go:'खाते तयार करा',login_to_signup:'नवीन आहात? खाते तयार करा',login_to_signin:'आधीच खाते आहे? साइन इन करा',login_forgot:'पासवर्ड विसरलात?',login_guest:'खात्याशिवाय पुढे जा',login_privacy:'तुमचे लिखाण तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते. साइन आउट केल्यावर ते या उपकरणातून काढले जाते.',f_signin:'साइन इन',f_signout:'साइन आउट',f_signout_confirm:'साइन आउटसाठी पुन्हा टॅप करा',acct_as:'साइन इन: ',sync_saved:'खात्यात जतन झाले',sync_wait:'समक्रमित होत आहे…',sync_off:'ऑफलाइन. नंतर समक्रमित होईल',err_creds:'ईमेल किंवा पासवर्ड चुकीचा आहे.',err_exists:'या ईमेलचे खाते आधीच आहे. साइन इन करा.',err_weak:'पासवर्ड किमान ८ अक्षरांचा ठेवा.',err_email:'कृपया योग्य ईमेल लिहा.',err_many:'खूप प्रयत्न झाले. थोड्या वेळाने पुन्हा करा.',err_net:'इंटरनेट नाही. कनेक्शन तपासा.',err_popup:'पॉप-अप अडवला गेला. परवानगी द्या किंवा ईमेल वापरा.',err_generic:'काहीतरी चुकले. पुन्हा प्रयत्न करा.',reset_sent:'पासवर्ड रीसेटची लिंक ईमेलवर पाठवली.',need_email:'आधी वरती ईमेल लिहा.',offline_login:'साइन इन करण्यासाठी इंटरनेट हवे.',
     profile_open:'प्रोफाइल उघडा',profile_close:'प्रोफाइल बंद करा',profile_title:'तुमचे प्रोफाइल',profile_help:'तुमच्या UNWRITTEN खात्याची थोडी माहिती.',profile_name:'दिसणारे नाव',profile_name_placeholder:'तुमचे नाव',profile_photo:'प्रोफाइल फोटोची लिंक',profile_photo_placeholder:'https://…',profile_photo_error:'https लिंक किंवा या साइटवरील फोटो वापरा.',profile_save:'प्रोफाइल जतन करा',profile_saving:'जतन होत आहे…',profile_saved:'तुमचे प्रोफाइल जतन झाले.',profile_name_required:'कृपया आधी नाव लिहा.',profile_save_error:'प्रोफाइल जतन झाले नाही. पुन्हा प्रयत्न करा.',profile_offline:'प्रोफाइल बदलण्यासाठी इंटरनेट कनेक्शन आवश्यक आहे.',profile_posts:'ब्लॉग',profile_notes:'चिठ्ठ्या',profile_days:'लेखनाचे दिवस',profile_activity:'लेखनाची माहिती',profile_privacy:'तुमचे लिखाण तुमच्या खात्यात खाजगी राहते. साइन आउट केल्यावर त्याची प्रत या उपकरणातून काढली जाते.',profile_reset:'पासवर्ड रीसेट करा',
-    streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',mem_ago:'{n} दिवसांपूर्वी तुम्ही लिहिले',mem_read:'पुन्हा वाचा →',recap_title:'तुमचा आठवडा',recap_days:'दिवस लिहिले',recap_words:'शब्द',recap_save:'इमेज म्हणून जतन करा',recap_m1:'सुरुवात ही सुरुवातच असते.',recap_m2:'छान लय. सावकाश चालू ठेवा.',recap_m3:'ही खरी सवय आहे.',stamp_ms:'{n} दिवस',stamp_saved:'जतन',stamp_stuck:'चिकटवले',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
+    streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',mem_ago:'{n} दिवसांपूर्वी तुम्ही लिहिले',mem_read:'पुन्हा वाचा →',recap_title:'तुमचा आठवडा',recap_days:'दिवस लिहिले',recap_words:'शब्द',recap_save:'इमेज म्हणून जतन करा',recap_m1:'सुरुवात ही सुरुवातच असते.',recap_m2:'छान लय. सावकाश चालू ठेवा.',recap_m3:'ही खरी सवय आहे.',pin_title:'तुमचा PIN टाका',pin_forgot:'PIN विसरलात?',pin_wrong:'चुकीचा PIN. पुन्हा प्रयत्न करा.',pin_wait:'खूप प्रयत्न झाले. {n} सेकंद थांबा.',pin_reset:'पुन्हा टॅप करा: हे डिव्हाइस पुसले जाईल आणि PIN निघेल',f_lock:'अ‍ॅप लॉक',lock_title:'अ‍ॅप लॉक',lock_sub:'UNWRITTEN उघडताना 4 अंकी PIN विचारला जाईल. यामुळे इतरांच्या नजरेपासून संरक्षण मिळते. हे एन्क्रिप्शन नाही.',lock_new:'नवीन PIN',lock_again:'PIN पुन्हा टाका',lock_on:'चालू करा',lock_off:'बंद करा',lock_bad:'अगदी 4 अंक वापरा.',lock_mismatch:'दोन्ही PIN जुळत नाहीत.',lock_saved:'अ‍ॅप लॉक चालू आहे',lock_removed:'अ‍ॅप लॉक बंद आहे',quote_btn:'कोट कार्ड',quote_saved:'कोट कार्ड जतन केले. टीप: आधी एक ओळ निवडा.',quote_title:'UNWRITTEN मधील एक ओळ',stamp_ms:'{n} दिवस',f_title:'भविष्यातल्या मला पत्र',f_sub:'वरती पत्र लिहा, एक दिवस निवडा, आणि तो दिवस येईपर्यंत ते बंद राहील.',f_label:'उघडण्याचा दिवस',f_btn:'बंद करा',f_none:'अजून काही बंद केलेले नाही.',f_opened:'उघडले · लिहिले {d}',f_ready:'उघडायला तयार · लिहिले {d}',f_sealed:'बंद · {d} रोजी उघडेल · {n} दिवस बाकी',f_hide:'बंद करा',f_open:'उघडा',f_delete:'हटवा',f_pick:'भविष्यातला दिवस निवडा',f_done:'बंद केले. भेटू {d} रोजी.',f_home_when:'मागच्या तुमचे पत्र',f_home_title:'उघडायला तयार',f_home_go:'उघडा →',stamp_saved:'जतन',stamp_stuck:'चिकटवले',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
     f_privacy:'गोपनीयता',privacy_title:'गोपनीयता, सोप्या शब्दांत',privacy_close:'बंद करा',privacy_link:'गोपनीयता',
     privacy_p1:'तुम्ही साइन इन केले नाही, तर तुम्ही लिहिलेले सर्व याच ब्राउझरमध्ये राहते आणि कुठेही जात नाही.',
     privacy_p2:'साइन इन केल्यास आम्ही तुमचा ईमेल आणि चार गोष्टी ठेवतो: पोस्ट, नोट्स, पत्र आणि लिहिलेले दिवस. आणखी काही नाही. जाहिराती नाहीत, ट्रॅकर्स नाहीत.',
@@ -301,7 +301,7 @@ function applyLang(lang){
   });
   $$('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria,el.getAttribute('aria-label')||'')));
   const fl=$('#f-lang');if(fl)fl.textContent=curLang==='mr'?'English':'मराठी';
-  renderThemes();renderStarter();letterCount();renderLetter();
+  renderThemes();renderStarter();letterCount();renderLetter();renderFuture();
   updateFilters();
   renderStreak();
   renderWall();
@@ -415,6 +415,15 @@ function myEntries(){                           /* everything the person wrote, 
 }
 function renderMemory(){
   const box=$('#memory'),now=Date.now();let best=null;
+  const rf=typeof readyFuture==='function'?readyFuture():[];
+  if(rf.length){                                 /* a sealed letter has reached its day: it comes first */
+    box.hidden=false;
+    box.replaceChildren(
+      h('p',{class:'mem-when'},t('f_home_when','A letter from past you')),
+      h('h3',{class:'mem-title'},t('f_home_title','Ready to open')),
+      h('button',{class:'mem-go',type:'button',onclick:()=>{location.hash='#letter';setTimeout(()=>$('#future').scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'}),120)}},t('f_home_go','Open it →')));
+    return;
+  }
   myEntries().forEach(e=>{const age=(now-e.at)/DAY;if(age<7||age>60)return;const sc=Math.abs(age-30);if(!best||sc<best.sc)best={...e,age:Math.round(age),sc}});
   box.hidden=!best;if(!best)return;
   const snip=best.text.replace(/\s+/g,' ').slice(0,130)+(best.text.length>130?'…':'');
@@ -539,6 +548,7 @@ function renderBlog(){
       h('div',{class:'actions'},
         h('button',{class:'btn ghost',type:'button',onclick:()=>copyText(p.title+'\n\n'+p.body,t('toast_copied','Post copied'))},t('copy_post','Copy text')),
         h('button',{class:'btn ghost',type:'button',onclick:()=>savePostCard(p)},t('share_card','Share card')),
+        h('button',{class:'btn ghost',type:'button',onclick:()=>saveQuote(p)},t('quote_btn','Quote card')),
         canShareFiles?h('button',{class:'btn ghost',type:'button',onclick:()=>sharePostCard(p)},t('share_btn','Share')):null,
         h('button',{class:'btn ghost',type:'button',onclick:()=>downloadPostPDF(p)},t('download_pdf','Download PDF')),
         h('button',{class:'btn ghost',type:'button',onclick:()=>printPost(p)},t('print_btn','Print')),
@@ -548,7 +558,7 @@ function renderBlog(){
           mine=mine.filter(x=>x.id!==p.id);savePosts();
           openId=null;confirmDel=false;renderBlog();toast(t('toast_deleted','Post deleted'));
         }},t('delete_post','Delete post'))));
-    window.scrollTo(0,0);
+    quoteSel='';window.scrollTo(0,0);
     return;
   }
   reader.hidden=true;list.hidden=false;
@@ -836,6 +846,45 @@ $('#n-swatches').replaceChildren(...Object.entries(NC).map(([k,[name,hex]])=>
     h('span',{style:'--c:'+hex}))));
 
 /* a 3000 x 3000 picture of one note, taped to a cream desk */
+/* ---------- quote card: a line from a post, as a picture ---------- */
+let quoteSel='';
+document.addEventListener('selectionchange',()=>{              /* remember the chosen line (a tap on a button can clear the selection) */
+  const sel=getSelection();if(!sel||sel.isCollapsed)return;
+  const n=sel.anchorNode&&(sel.anchorNode.nodeType===1?sel.anchorNode:sel.anchorNode.parentElement);
+  if(n&&n.closest&&n.closest('#blog-reader .prose'))quoteSel=sel.toString().replace(/\s+/g,' ').trim().slice(0,300);
+});
+async function quoteCanvas(text,source){
+  await ensureFonts(text+source);
+  const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;
+  const x=c.getContext('2d');
+  x.fillStyle='#FF6A18';x.fillRect(0,0,W,H);
+  x.fillStyle='rgba(42,11,11,.14)';
+  for(let y=30;y<H;y+=52)for(let xx=30;xx<W;xx+=52){x.beginPath();x.arc(xx,y,2.4,0,6.3);x.fill()}
+  const m=90,cw=W-2*m,ch=H-2*m-70;
+  x.save();x.translate(W/2,H/2-30);x.rotate(-1.2*Math.PI/180);x.translate(-W/2,-(H/2-30));
+  x.fillStyle='rgba(42,11,11,.30)';x.fillRect(m+16,m+22,cw,ch);
+  x.fillStyle='#F5E9D8';x.fillRect(m,m,cw,ch);
+  x.fillStyle='rgba(255,231,97,.85)';x.save();x.translate(W/2,m+4);x.rotate(-3*Math.PI/180);x.fillRect(-120,-30,240,60);x.restore();
+  x.fillStyle='#FF6A18';x.font='400 220px Anton, Impact, sans-serif';x.textAlign='left';x.fillText('\u201C',m+60,m+250);
+  const px=m+80,maxW=cw-160,top=m+300,bottom=m+ch-190;
+  let size=88,lines=[],lh=0;
+  for(;size>=44;size-=4){x.font=`700 ${size}px Kalam, "Noto Sans Devanagari", sans-serif`;lines=wrapLines(x,text,maxW);lh=size*1.38;if(lines.length*lh<=bottom-top)break}
+  x.fillStyle='#2A0B0B';
+  let y=top;for(const t of lines){x.fillText(t,px,y+size);y+=lh}
+  x.font='800 38px Mukta, "Noto Sans Devanagari", sans-serif';x.fillStyle='rgba(42,11,11,.7)';
+  x.fillText('\u2014 '+source,px,m+ch-90);
+  x.restore();
+  x.fillStyle='rgba(255,255,255,.9)';x.font='400 64px Anton, Impact, sans-serif';x.textAlign='center';x.fillText('UNWRITTEN',W/2,H-62);
+  return c;
+}
+async function saveQuote(p){
+  let q=quoteSel;
+  if(!q){const first=(p.body.replace(/\s+/g,' ').trim().match(/^.{1,220}?[.!?](\s|$)/)||[p.body.replace(/\s+/g,' ').trim().slice(0,200)])[0].trim();q=first}
+  try{
+    saveBlob('unwritten-quote-'+todayISO()+'.png',await toBlob(await quoteCanvas(q,p.title||t('quote_title','A line from UNWRITTEN'))));
+    toast(t('quote_saved','Quote card saved. Tip: select a line first to pick your own.'));
+  }catch(e){toast('Could not make the image')}
+}
 async function noteCanvas(n){
   await ensureFonts(n.t+(n.f||''));
   const S=3000,c=document.createElement('canvas');c.width=c.height=S;
@@ -1280,6 +1329,46 @@ armed($('#l-new'),t('clear_letter_confirm','Tap again to clear'),()=>{
   syncLetterInputs();renderLetter();$('#l-body').focus();toast(t('toast_fresh_ready','Fresh page ready'));
 });
 
+/* ---------- letter to future me: sealed until a date you choose ---------- */
+const cleanFuture=o=>{
+  if(!o||typeof o!=='object'||!isDay(o.open)||!isDay(o.made)||typeof o.text!=='string'||!o.text.trim())return null;
+  return{id:str(o.id,40)||'f'+Math.random().toString(36).slice(2,9),text:o.text.slice(0,9000),made:o.made,open:o.open,read:!!o.read};
+};
+let future=loadList(K.future,cleanFuture),fShown=null,fDel=null;
+const saveFuture=()=>store.set(K.future,JSON.stringify(future));
+const daysTo=iso=>Math.round((new Date(iso+'T00:00:00')-new Date(todayISO()+'T00:00:00'))/DAY);
+const readyFuture=()=>future.filter(f=>!f.read&&f.open<=todayISO());
+function renderFuture(){
+  const d=$('#f-date');if(d){const tm=new Date();tm.setDate(tm.getDate()+1);d.min=keyOf(tm);if(!d.value){const m=new Date();m.setMonth(m.getMonth()+1);d.value=keyOf(m)}}
+  const box=$('#f-list');if(!box)return;
+  const rows=[...future].sort((a,b)=>a.open.localeCompare(b.open)).map(f=>{
+    const left=daysTo(f.open),ready=left<=0,shown=fShown===f.id;
+    return h('div',{class:'f-item'+(ready?' ready':'')},
+      h('p',{class:'f-line'},ready
+        ?(f.read?t('f_opened','Opened · written {d}'):t('f_ready','Ready to open · written {d}')).replace('{d}',fmt(f.made))
+        :t('f_sealed','Sealed · opens {d} · {n} days to go').replace('{d}',fmt(f.open)).replace('{n}',left)),
+      shown?h('p',{class:'f-text'},f.text):null,
+      h('div',{class:'f-btns'},
+        ready?h('button',{class:'btn ghost',type:'button',onclick:()=>{
+          fShown=shown?null:f.id;if(!shown&&!f.read){f.read=true;saveFuture()}renderFuture();renderMemory()}},shown?t('f_hide','Close'):t('f_open','Open it')):null,
+        h('button',{class:'btn ghost',type:'button',onclick:ev=>{
+          if(fDel!==f.id){fDel=f.id;ev.target.textContent=t('confirm_delete','Tap again to delete');return}
+          future=future.filter(x=>x.id!==f.id);fDel=null;saveFuture();renderFuture();renderMemory()}},t('f_delete','Delete'))));
+  });
+  box.replaceChildren(...rows);
+  $('#f-none').hidden=rows.length>0;
+}
+$('#f-seal').addEventListener('click',()=>{
+  if(!needText())return;
+  const open=$('#f-date').value;
+  if(!isDay(open)||open<=todayISO()){toast(t('f_pick','Pick a day in the future'));return}
+  future.push({id:'f'+Date.now(),text:letterText(),made:todayISO(),open,read:false});
+  saveFuture();markToday(true);sealLetter();
+  Object.assign(L,{greet:'Dear ',body:'',sign:'With love,',from:'',date:todayISO()});
+  syncLetterInputs();renderLetter();renderFuture();
+  toast(t('f_done','Sealed. See you on {d}.').replace('{d}',fmt(open)));
+});
+
 /* ---------- zen mode: the writing box fills the screen, nothing else ---------- */
 function zenInit(id,key,opts={}){
   const ta=$('#'+id),field=ta.closest('.field');
@@ -1383,6 +1472,60 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
 
 /* ---------- start ---------- */
 /* ---------- soft wind: the same dot grid, drifting on a slow breeze ---------- */
+/* ---------- app lock: a 4-digit PIN (a privacy screen, not encryption) ---------- */
+(function appLock(){
+  const K_PIN='liha.pin',el=$('#pinlock'),inp=$('#pin-input'),err=$('#pin-err'),dots=$$('#pin-dots i');
+  let fails=0,wait=0,hiddenAt=0,resetArmed=false;
+  const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+  async function hashPin(pin,salt){
+    try{return hex(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(salt+':'+pin)))}
+    catch(e){let a=5381;for(const ch of salt+':'+pin)a=((a<<5)+a+ch.charCodeAt(0))|0;return 'x'+a}
+  }
+  const stored=()=>parse(store.get(K_PIN),null);
+  const lockOn=()=>!!(stored()&&stored().h);
+  function setLocked(on){
+    document.documentElement.classList.toggle('pinlocked',on);
+    el.hidden=!on;
+    if(on){inp.value='';draw();err.textContent='';resetArmed=false;$('#pin-forgot').textContent=t('pin_forgot','Forgot PIN?');setTimeout(()=>inp.focus({preventScroll:true}),50)}
+  }
+  const draw=()=>dots.forEach((d,i)=>d.classList.toggle('on',i<inp.value.length));
+  inp.addEventListener('input',async()=>{
+    inp.value=inp.value.replace(/\D/g,'').slice(0,4);draw();err.textContent='';
+    if(inp.value.length<4)return;
+    if(Date.now()<wait){err.textContent=t('pin_wait','Too many tries. Wait {n} seconds.').replace('{n}',Math.ceil((wait-Date.now())/1000));inp.value='';draw();return}
+    const s=stored();
+    if(s&&await hashPin(inp.value,s.s)===s.h){fails=0;setLocked(false);return}
+    fails++;inp.value='';draw();
+    if(fails>=5){wait=Date.now()+30000;fails=0;err.textContent=t('pin_wait','Too many tries. Wait {n} seconds.').replace('{n}',30)}
+    else err.textContent=t('pin_wrong','Wrong PIN. Try again.');
+  });
+  $('#pin-forgot').addEventListener('click',e=>{                 /* forgetting the PIN means starting this device fresh; an account copy stays safe */
+    if(!resetArmed){resetArmed=true;e.target.textContent=t('pin_reset','Tap again to erase this device and remove the PIN');return}
+    try{const gone=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('liha.')&&k!==K.theme&&k!==K.lang)gone.push(k)}gone.forEach(k=>localStorage.removeItem(k))}catch(x){}
+    location.reload();
+  });
+  document.addEventListener('visibilitychange',()=>{            /* lock again after a minute away */
+    if(document.hidden){hiddenAt=Date.now();return}
+    if(lockOn()&&hiddenAt&&Date.now()-hiddenAt>60000)setLocked(true);
+  });
+  /* settings window */
+  const dlg=$('#pinset'),n1=$('#pin-new'),n2=$('#pin-new2'),perr=$('#pinset-err');
+  const digits=e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,4)};
+  n1.addEventListener('input',digits);n2.addEventListener('input',digits);
+  function openSet(){n1.value=n2.value='';perr.textContent='';$('#pin-off').hidden=!lockOn();$('#pin-save').textContent=lockOn()?t('lock_change','Change PIN'):t('lock_on','Turn on');dlg.hidden=false;setTimeout(()=>n1.focus(),50)}
+  $('#f-lock').addEventListener('click',openSet);
+  $('#pinset-close').addEventListener('click',()=>{dlg.hidden=true});
+  $('#pin-save').addEventListener('click',async()=>{
+    if(!/^\d{4}$/.test(n1.value)){perr.textContent=t('lock_bad','Use exactly 4 digits.');return}
+    if(n1.value!==n2.value){perr.textContent=t('lock_mismatch','The two PINs do not match.');return}
+    const salt=Math.random().toString(36).slice(2,12);
+    store.set(K_PIN,JSON.stringify({s:salt,h:await hashPin(n1.value,salt)}));
+    dlg.hidden=true;toast(t('lock_saved','App lock is on'));
+  });
+  $('#pin-off').addEventListener('click',()=>{store.del(K_PIN);dlg.hidden=true;toast(t('lock_removed','App lock is off'))});
+  if(lockOn())setLocked(true);else document.documentElement.classList.remove('pinlocked');
+})();
+
 /* ---------- small touches: ink ripple on tap, scribbles that write themselves ---------- */
 (function touches(){
   if(reduceMotion())return;
