@@ -287,6 +287,7 @@
       <button class="uplink" type="button" id="f-lang">मराठी</button>
       <button class="uplink" type="button" id="f-privacy" data-i18n="f_privacy">Privacy</button>
       <button class="uplink" type="button" id="f-lock" data-i18n="f_lock">App lock</button>
+      <button class="uplink" type="button" id="f-remind" data-i18n="f_remind">Daily reminder</button>
       <button class="uplink" type="button" id="f-install" data-i18n="f_install" hidden>Install app</button>
       <details class="datamenu">
         <summary class="uplink" data-i18n="f_data">Your data</summary>
@@ -385,6 +386,22 @@
     <input class="pin-input" id="pin-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="PIN">
     <p class="login-err" id="pin-err" role="alert"></p>
     <button class="uplink" type="button" id="pin-forgot" data-i18n="pin_forgot">Forgot PIN?</button>
+  </section>
+</div>
+
+<div class="login" id="remind" role="dialog" aria-modal="true" aria-labelledby="remind-title" hidden>
+  <section class="login-card card stack" tabindex="-1">
+    <div class="profile-top">
+      <span class="login-brand">UNWRITTEN</span>
+      <button class="mini" id="remind-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <h2 class="form-title" id="remind-title" data-i18n="rem_title">Daily reminder</h2>
+    <p class="note-small" data-i18n="rem_sub">A website cannot ring your phone when it is closed. So we add a repeating event to your own calendar app, and it reminds you every day.</p>
+    <div class="field"><label for="remind-time" data-i18n="rem_time">Remind me at</label><input id="remind-time" type="time" value="21:00"></div>
+    <div class="row">
+      <button class="btn" type="button" id="remind-go" data-i18n="rem_go">Add to my calendar</button>
+    </div>
+    <p class="note-small" data-i18n="rem_how">Open the downloaded file and choose your calendar. To stop it later, delete the event there.</p>
   </section>
 </div>
 

@@ -715,7 +715,7 @@ html[data-theme="dark"] .ink-ripple{background:rgba(255,241,222,.25)}
 
 /* ---------- calmer, more refined (frosted pop-ups, editorial reading, wabi-sabi zen) ---------- */
 /* 1. windows that open over the site: frosted glass backdrop */
-#privacy,#profile,#pinset,body:not(.locked) #login{background:rgba(42,11,11,.38);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1)}
+#privacy,#profile,#pinset,#remind,body:not(.locked) #login{background:rgba(42,11,11,.38);-webkit-backdrop-filter:blur(10px) saturate(1.1);backdrop-filter:blur(10px) saturate(1.1)}
 /* 2. blog reader: a magazine page, with a narrow column and a drop cap */
 .reader .prose{max-width:60ch;margin-inline:auto}
 .reader .prose p{font-size:1.18rem;line-height:1.8}
