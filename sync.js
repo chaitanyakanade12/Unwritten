@@ -317,6 +317,7 @@ async function start() {
   });
   $('#a-mode').addEventListener('click', () => setMode(mode === 'in' ? 'up' : 'in'));
   $('#a-guest').addEventListener('click', () => lock(false));
+  $('#login-close').addEventListener('click', () => lock(false));
   $('#guest-btn').addEventListener('click', () => { $('#a-guest').hidden = !!C.requireLogin; lock(true) });
   $('#f-signin').addEventListener('click', () => { $('#a-guest').hidden = !!C.requireLogin; lock(true) });
   let armT;

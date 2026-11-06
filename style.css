@@ -762,3 +762,15 @@ html.pinlocked .wrap{visibility:hidden}
 #settings details[open] summary{margin-bottom:10px}
 .settings-list.sub{padding-left:10px;border-left:3px solid var(--ink)}
 .settings-list .uplink[hidden]{display:none}
+
+/* ---------- calmer sign-in window ---------- */
+#login .login-card{gap:14px}
+#login .form-title{margin:0}
+#login:has(#a-guest[hidden]) #login-close{display:none}
+#login .forgot{align-self:flex-end;justify-self:end;margin:-4px 0 0;font-size:.85rem;font-weight:700;opacity:.8}
+#login .login-links{display:grid;justify-items:center;gap:6px;padding-top:2px}
+#login .login-links .uplink{border:0;font-weight:700}
+#login #a-guest{opacity:.75;font-size:.9rem}
+#login .login-foot{margin:0;text-align:center;font-size:.8rem;opacity:.75}
+#login .login-foot .uplink{font-size:.8rem;font-weight:700;border:0;text-decoration:underline}
+#login input{font-size:16px}
