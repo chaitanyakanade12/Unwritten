@@ -781,3 +781,12 @@ html.pinlocked .wrap{visibility:hidden}
 .noter.editing{outline:2px dashed var(--ink);outline-offset:5px}
 #n-cancel{border:0;font-weight:800}
 #n-cancel[hidden]{display:none}
+
+/* ---------- pixel pencil (corner of the writing pages) ---------- */
+#penpal{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:64px;height:64px;z-index:11;pointer-events:none;image-rendering:pixelated;display:none;opacity:.94}
+body[data-page="blog"] #penpal,body[data-page="notes"] #penpal,body[data-page="letter"] #penpal{display:block}
+body[data-page="letter"] #penpal{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+html.pen-off #penpal,html.pinlocked #penpal,body.locked #penpal{display:none!important}
+@media (max-width:600px){#penpal{width:48px;height:48px;right:10px}}
+@media print{#penpal{display:none!important}}
+@media (max-width:760px){body[data-page="letter"] #penpal{display:none}}
