@@ -774,3 +774,10 @@ html.pinlocked .wrap{visibility:hidden}
 #login .login-foot{margin:0;text-align:center;font-size:.8rem;opacity:.75}
 #login .login-foot .uplink{font-size:.8rem;font-weight:700;border:0;text-decoration:underline}
 #login input{font-size:16px}
+
+/* ---------- editing a note ---------- */
+.nbtns{flex-wrap:wrap;justify-content:flex-end}
+.note.editing{outline:2px dashed var(--ink);outline-offset:5px}
+.noter.editing{outline:2px dashed var(--ink);outline-offset:5px}
+#n-cancel{border:0;font-weight:800}
+#n-cancel[hidden]{display:none}
