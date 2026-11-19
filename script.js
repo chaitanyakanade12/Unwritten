@@ -1134,6 +1134,8 @@ function cleanLetter(o){
   return r;
 }
 const L=Object.assign({},L0,cleanLetter(parse(store.get(K.letter),{})));
+/* an earlier version copied the Aai example into the real letter and saved it: clear that leftover (exact match only, so real writing is never touched) */
+if(['en','mr'].some(k=>L.body.trim()===(I18N[k].starter_aai_body||'').trim())&&!L.from.trim()){L.greet='';L.body='';L.sign='';try{localStorage.setItem(K.letter,JSON.stringify(L))}catch(e){}}
 if(!L.body.trim()&&!L.from.trim()){                    /* an unwritten letter starts blank and shows today's date (saved quietly, so it never counts as a change to sync) */
   let ch=false;
   if(L.greet.trim()==='Dear'&&L.sign.trim()==='With love,'){L.greet='';L.sign='';ch=true}   /* old pre-filled defaults */
