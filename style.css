@@ -807,3 +807,7 @@ html.pen-off #penpal,html.pinlocked #penpal,body.locked #penpal{display:none!imp
 #occasion .chip,#lstyle .chip{min-height:44px}
 #lstyle .btn{justify-self:start}
 #lstyle .field{margin:0}
+
+/* example letter: a quiet tag on the paper */
+#sheets[data-example]{position:relative}
+#sheets[data-example]::before{content:attr(data-example);position:absolute;z-index:3;top:12px;right:14px;padding:3px 10px;border:2px solid var(--ink);border-radius:999px;background:#FFE15A;color:var(--ink);font:800 .72rem/1.2 var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;rotate:3deg}
