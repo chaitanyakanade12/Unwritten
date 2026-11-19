@@ -192,7 +192,7 @@ const I18N={
     how_blog:'<b>Normal:</b> pick a topic, write, save. <b>Zen:</b> just you and the page. Zero noise.',how_letter:'<b>Normal:</b> pick your paper and vibe, then print. <b>Zen:</b> just you and the page. Zero noise.',fact_title:'Scroll less, write a little',fact1:'<b>Scrolling</b> fills your head with other people’s thoughts. Writing gives you yours back.',fact2:'<b>Putting a feeling into words</b> tends to make it feel smaller. Researchers call this affect labelling.',fact3:'<b>Studies</b> link long stretches of doomscrolling with more stress, and expressive writing with a slightly better mood.',fact_note:'Just research, not medical advice. A few lines a day is plenty.',why_privacy:'Your writing stays on this device. If you sign in, it is saved to your own private account and shown to no one else.',
     login_title:'Welcome back',signup_title:'Create your account',login_sub:'Sign in to keep your writing safe and see it on every device.',login_google:'Continue with Google',login_or:'or use your email',login_email:'Email',login_pass:'Password',login_signin:'Sign in',signup_go:'Create account',login_to_signup:'New here? Create an account',login_to_signin:'Already have an account? Sign in',login_forgot:'Forgot password?',login_guest:'Continue without an account',login_privacy:'Your writing is saved to your own private account. Signing out removes it from this device.',f_signin:'Sign in',f_signout:'Sign out',f_signout_confirm:'Tap again to sign out',acct_as:'Signed in as ',sync_saved:'Saved to your account',sync_wait:'Syncing…',sync_off:'Offline. Will sync later',err_creds:'Wrong email or password.',err_exists:'An account with this email already exists. Try signing in.',err_weak:'Use a password with at least 8 characters.',err_email:'Please enter a valid email.',err_many:'Too many tries. Please wait a little and try again.',err_net:'No internet. Please check your connection.',err_popup:'The pop-up was blocked. Allow pop-ups or use your email.',err_generic:'Something went wrong. Please try again.',reset_sent:'Password reset link sent to your email.',need_email:'Type your email above first.',offline_login:'You need internet to sign in.',
     profile_open:'Open profile',profile_close:'Close profile',profile_title:'Your profile',profile_help:'A little about your UNWRITTEN account.',profile_name:'Display name',profile_name_placeholder:'Your name',profile_photo:'Profile photo URL',profile_photo_placeholder:'https://…',profile_photo_error:'Use an https image address or a file on this site.',profile_save:'Save profile',profile_saving:'Saving…',profile_saved:'Your profile was saved.',profile_name_required:'Please add a name first.',profile_save_error:'Could not save your profile. Please try again.',profile_offline:'Profile settings need an internet connection.',profile_posts:'posts',profile_notes:'notes',profile_days:'writing days',profile_activity:'Writing activity',profile_privacy:'Your writing is private to your account. Signing out removes its copy from this device.',profile_reset:'Reset password',
-    streak_total:'{n} days written',counts:'That counts. {n} days written so far.',mem_ago:'{n} days ago you wrote',mem_read:'Read it again →',recap_title:'Your week',recap_days:'days written',recap_words:'words',recap_save:'Save as image',recap_m1:'A start is a start.',recap_m2:'Nice rhythm. Keep it gentle.',recap_m3:'That is a real habit.',f_remind:'Daily reminder',rem_title:'Daily reminder',rem_sub:'A website cannot ring your phone when it is closed. So we add a repeating event to your own calendar app, and it reminds you every day.',rem_time:'Remind me at',rem_go:'Add to my calendar',rem_how:'Open the downloaded file and choose your calendar. To stop it later, delete the event there.',rem_done:'Reminder file ready. Open it to add it to your calendar.',rem_summary:'Write a little, every day',rem_desc:'Open UNWRITTEN and write a few lines.',f_settings:'Settings',pen_on:'Pencil animation: on',pen_off:'Pencil animation: off',edit_note:'Edit',update_btn:'Update',cancel_edit:'Cancel',toast_note_updated:'Note updated',pin_title:'Enter your PIN',pin_forgot:'Forgot PIN?',pin_wrong:'Wrong PIN. Try again.',pin_wait:'Too many tries. Wait {n} seconds.',pin_reset:'Tap again to erase this device and remove the PIN',f_lock:'App lock',lock_title:'App lock',lock_sub:'Ask for a 4-digit PIN when you open UNWRITTEN. It keeps casual snoopers out. It is not encryption.',lock_new:'New PIN',lock_again:'Repeat PIN',lock_on:'Turn on',lock_off:'Turn off',lock_bad:'Use exactly 4 digits.',lock_mismatch:'The two PINs do not match.',lock_saved:'App lock is on',lock_removed:'App lock is off',quote_btn:'Quote card',quote_saved:'Quote card saved. Tip: select a line first to pick your own.',quote_title:'A line from UNWRITTEN',stamp_ms:'{n} DAYS',f_title:'Letter to future me',f_sub:'Write your letter above, pick a day, and it stays sealed until then.',f_label:'Open on',f_btn:'Seal it',f_none:'Nothing sealed yet.',f_opened:'Opened · written {d}',f_ready:'Ready to open · written {d}',f_sealed:'Sealed · opens {d} · {n} days to go',f_hide:'Close',f_open:'Open it',f_delete:'Delete',f_pick:'Pick a day in the future',f_done:'Sealed. See you on {d}.',f_home_when:'A letter from past you',f_home_title:'Ready to open',f_home_go:'Open it →',stamp_saved:'SAVED',stamp_stuck:'STUCK',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
+    streak_total:'{n} days written',counts:'That counts. {n} days written so far.',mem_ago:'{n} days ago you wrote',mem_read:'Read it again →',recap_title:'Your week',recap_days:'days written',recap_words:'words',recap_save:'Save as image',recap_m1:'A start is a start.',recap_m2:'Nice rhythm. Keep it gentle.',recap_m3:'That is a real habit.',f_remind:'Daily reminder',rem_title:'Daily reminder',rem_sub:'A website cannot ring your phone when it is closed. So we add a repeating event to your own calendar app, and it reminds you every day.',rem_time:'Remind me at',rem_go:'Add to my calendar',rem_how:'Open the downloaded file and choose your calendar. To stop it later, delete the event there.',rem_done:'Reminder file ready. Open it to add it to your calendar.',rem_summary:'Write a little, every day',rem_desc:'Open UNWRITTEN and write a few lines.',f_settings:'Settings',style_btn:'Style',g_everyday:'Everyday',g_feelings:'Feelings',g_celebrate:'Celebrate',g_paperstyle:'Paper style',see_example:'Need words? See an example',greet_ph:'Dear…',sign_ph:'With love,',pen_on:'Pencil animation: on',pen_off:'Pencil animation: off',edit_note:'Edit',update_btn:'Update',cancel_edit:'Cancel',toast_note_updated:'Note updated',pin_title:'Enter your PIN',pin_forgot:'Forgot PIN?',pin_wrong:'Wrong PIN. Try again.',pin_wait:'Too many tries. Wait {n} seconds.',pin_reset:'Tap again to erase this device and remove the PIN',f_lock:'App lock',lock_title:'App lock',lock_sub:'Ask for a 4-digit PIN when you open UNWRITTEN. It keeps casual snoopers out. It is not encryption.',lock_new:'New PIN',lock_again:'Repeat PIN',lock_on:'Turn on',lock_off:'Turn off',lock_bad:'Use exactly 4 digits.',lock_mismatch:'The two PINs do not match.',lock_saved:'App lock is on',lock_removed:'App lock is off',quote_btn:'Quote card',quote_saved:'Quote card saved. Tip: select a line first to pick your own.',quote_title:'A line from UNWRITTEN',stamp_ms:'{n} DAYS',f_title:'Letter to future me',f_sub:'Write your letter above, pick a day, and it stays sealed until then.',f_label:'Open on',f_btn:'Seal it',f_none:'Nothing sealed yet.',f_opened:'Opened · written {d}',f_ready:'Ready to open · written {d}',f_sealed:'Sealed · opens {d} · {n} days to go',f_hide:'Close',f_open:'Open it',f_delete:'Delete',f_pick:'Pick a day in the future',f_done:'Sealed. See you on {d}.',f_home_when:'A letter from past you',f_home_title:'Ready to open',f_home_go:'Open it →',stamp_saved:'SAVED',stamp_stuck:'STUCK',keep_safe:'Saved on this device. Sign in to keep it safe on every device.',saved_ok:'saved',
     f_privacy:'Privacy',privacy_title:'Privacy, in plain words',privacy_close:'Close',privacy_link:'Privacy',
     privacy_p1:'If you do not sign in, everything you write stays in this browser and goes nowhere.',
     privacy_p2:'If you sign in, we keep your email and four things: your posts, notes, letter and writing days. Nothing else. No ads and no trackers.',
@@ -256,7 +256,7 @@ const I18N={
     how_blog:'<b>नॉर्मल:</b> विषय निवडा, लिहा, जतन करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',how_letter:'<b>नॉर्मल:</b> कागद आणि मूड निवडा, मग प्रिंट करा. <b>झेन:</b> फक्त तुम्ही आणि पान. शून्य गोंधळ.',fact_title:'स्क्रोल कमी, लिहा थोडं',fact1:'<b>स्क्रोलिंग</b> डोक्यात इतरांचे विचार भरतं. लिहिल्याने तुमचे स्वतःचे विचार परत मिळतात.',fact2:'<b>भावना शब्दांत मांडली</b> की ती छोटी वाटू लागते. संशोधक याला affect labelling म्हणतात.',fact3:'<b>अभ्यासांनुसार</b> जास्त वेळ दुःखद बातम्या स्क्रोल केल्याने ताण वाढतो, आणि मनातलं लिहिल्याने मूड थोडा सुधारतो.',fact_note:'हे फक्त संशोधन आहे, वैद्यकीय सल्ला नव्हे. रोज थोड्या ओळी पुरेशा आहेत.',why_privacy:'तुमचे लिखाण याच उपकरणावर राहते. साइन इन केल्यास ते तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते आणि दुसऱ्या कुणालाही दिसत नाही.',
     login_title:'पुन्हा स्वागत',signup_title:'खाते तयार करा',login_sub:'तुमचे लिखाण सुरक्षित ठेवण्यासाठी आणि सर्व उपकरणांवर पाहण्यासाठी साइन इन करा.',login_google:'Google ने पुढे जा',login_or:'किंवा ईमेल वापरा',login_email:'ईमेल',login_pass:'पासवर्ड',login_signin:'साइन इन',signup_go:'खाते तयार करा',login_to_signup:'नवीन आहात? खाते तयार करा',login_to_signin:'आधीच खाते आहे? साइन इन करा',login_forgot:'पासवर्ड विसरलात?',login_guest:'खात्याशिवाय पुढे जा',login_privacy:'तुमचे लिखाण तुमच्या स्वतःच्या खाजगी खात्यात साठवले जाते. साइन आउट केल्यावर ते या उपकरणातून काढले जाते.',f_signin:'साइन इन',f_signout:'साइन आउट',f_signout_confirm:'साइन आउटसाठी पुन्हा टॅप करा',acct_as:'साइन इन: ',sync_saved:'खात्यात जतन झाले',sync_wait:'समक्रमित होत आहे…',sync_off:'ऑफलाइन. नंतर समक्रमित होईल',err_creds:'ईमेल किंवा पासवर्ड चुकीचा आहे.',err_exists:'या ईमेलचे खाते आधीच आहे. साइन इन करा.',err_weak:'पासवर्ड किमान ८ अक्षरांचा ठेवा.',err_email:'कृपया योग्य ईमेल लिहा.',err_many:'खूप प्रयत्न झाले. थोड्या वेळाने पुन्हा करा.',err_net:'इंटरनेट नाही. कनेक्शन तपासा.',err_popup:'पॉप-अप अडवला गेला. परवानगी द्या किंवा ईमेल वापरा.',err_generic:'काहीतरी चुकले. पुन्हा प्रयत्न करा.',reset_sent:'पासवर्ड रीसेटची लिंक ईमेलवर पाठवली.',need_email:'आधी वरती ईमेल लिहा.',offline_login:'साइन इन करण्यासाठी इंटरनेट हवे.',
     profile_open:'प्रोफाइल उघडा',profile_close:'प्रोफाइल बंद करा',profile_title:'तुमचे प्रोफाइल',profile_help:'तुमच्या UNWRITTEN खात्याची थोडी माहिती.',profile_name:'दिसणारे नाव',profile_name_placeholder:'तुमचे नाव',profile_photo:'प्रोफाइल फोटोची लिंक',profile_photo_placeholder:'https://…',profile_photo_error:'https लिंक किंवा या साइटवरील फोटो वापरा.',profile_save:'प्रोफाइल जतन करा',profile_saving:'जतन होत आहे…',profile_saved:'तुमचे प्रोफाइल जतन झाले.',profile_name_required:'कृपया आधी नाव लिहा.',profile_save_error:'प्रोफाइल जतन झाले नाही. पुन्हा प्रयत्न करा.',profile_offline:'प्रोफाइल बदलण्यासाठी इंटरनेट कनेक्शन आवश्यक आहे.',profile_posts:'ब्लॉग',profile_notes:'चिठ्ठ्या',profile_days:'लेखनाचे दिवस',profile_activity:'लेखनाची माहिती',profile_privacy:'तुमचे लिखाण तुमच्या खात्यात खाजगी राहते. साइन आउट केल्यावर त्याची प्रत या उपकरणातून काढली जाते.',profile_reset:'पासवर्ड रीसेट करा',
-    streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',mem_ago:'{n} दिवसांपूर्वी तुम्ही लिहिले',mem_read:'पुन्हा वाचा →',recap_title:'तुमचा आठवडा',recap_days:'दिवस लिहिले',recap_words:'शब्द',recap_save:'इमेज म्हणून जतन करा',recap_m1:'सुरुवात ही सुरुवातच असते.',recap_m2:'छान लय. सावकाश चालू ठेवा.',recap_m3:'ही खरी सवय आहे.',f_remind:'रोजची आठवण',rem_title:'रोजची आठवण',rem_sub:'वेबसाइट बंद असताना फोन वाजवू शकत नाही. म्हणून आम्ही तुमच्या कॅलेंडरमध्ये रोज पुन्हा येणारा कार्यक्रम जोडतो, तो तुम्हाला रोज आठवण करून देतो.',rem_time:'या वेळी आठवण द्या',rem_go:'माझ्या कॅलेंडरमध्ये जोडा',rem_how:'डाउनलोड झालेली फाइल उघडा आणि तुमचे कॅलेंडर निवडा. नंतर थांबवायचे असेल तर तो कार्यक्रम तिथून हटवा.',rem_done:'आठवणीची फाइल तयार आहे. कॅलेंडरमध्ये जोडण्यासाठी ती उघडा.',rem_summary:'रोज थोडं लिहा',rem_desc:'UNWRITTEN उघडा आणि काही ओळी लिहा.',f_settings:'सेटिंग्ज',pen_on:'पेन्सिल ॲनिमेशन: चालू',pen_off:'पेन्सिल ॲनिमेशन: बंद',edit_note:'बदला',update_btn:'अपडेट करा',cancel_edit:'रद्द करा',toast_note_updated:'नोट अपडेट केला',pin_title:'तुमचा PIN टाका',pin_forgot:'PIN विसरलात?',pin_wrong:'चुकीचा PIN. पुन्हा प्रयत्न करा.',pin_wait:'खूप प्रयत्न झाले. {n} सेकंद थांबा.',pin_reset:'पुन्हा टॅप करा: हे डिव्हाइस पुसले जाईल आणि PIN निघेल',f_lock:'अ‍ॅप लॉक',lock_title:'अ‍ॅप लॉक',lock_sub:'UNWRITTEN उघडताना 4 अंकी PIN विचारला जाईल. यामुळे इतरांच्या नजरेपासून संरक्षण मिळते. हे एन्क्रिप्शन नाही.',lock_new:'नवीन PIN',lock_again:'PIN पुन्हा टाका',lock_on:'चालू करा',lock_off:'बंद करा',lock_bad:'अगदी 4 अंक वापरा.',lock_mismatch:'दोन्ही PIN जुळत नाहीत.',lock_saved:'अ‍ॅप लॉक चालू आहे',lock_removed:'अ‍ॅप लॉक बंद आहे',quote_btn:'कोट कार्ड',quote_saved:'कोट कार्ड जतन केले. टीप: आधी एक ओळ निवडा.',quote_title:'UNWRITTEN मधील एक ओळ',stamp_ms:'{n} दिवस',f_title:'भविष्यातल्या मला पत्र',f_sub:'वरती पत्र लिहा, एक दिवस निवडा, आणि तो दिवस येईपर्यंत ते बंद राहील.',f_label:'उघडण्याचा दिवस',f_btn:'बंद करा',f_none:'अजून काही बंद केलेले नाही.',f_opened:'उघडले · लिहिले {d}',f_ready:'उघडायला तयार · लिहिले {d}',f_sealed:'बंद · {d} रोजी उघडेल · {n} दिवस बाकी',f_hide:'बंद करा',f_open:'उघडा',f_delete:'हटवा',f_pick:'भविष्यातला दिवस निवडा',f_done:'बंद केले. भेटू {d} रोजी.',f_home_when:'मागच्या तुमचे पत्र',f_home_title:'उघडायला तयार',f_home_go:'उघडा →',stamp_saved:'जतन',stamp_stuck:'चिकटवले',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
+    streak_total:'{n} दिवस लिहिले',counts:'ते मोजले गेले. आतापर्यंत {n} दिवस लिहिले.',mem_ago:'{n} दिवसांपूर्वी तुम्ही लिहिले',mem_read:'पुन्हा वाचा →',recap_title:'तुमचा आठवडा',recap_days:'दिवस लिहिले',recap_words:'शब्द',recap_save:'इमेज म्हणून जतन करा',recap_m1:'सुरुवात ही सुरुवातच असते.',recap_m2:'छान लय. सावकाश चालू ठेवा.',recap_m3:'ही खरी सवय आहे.',f_remind:'रोजची आठवण',rem_title:'रोजची आठवण',rem_sub:'वेबसाइट बंद असताना फोन वाजवू शकत नाही. म्हणून आम्ही तुमच्या कॅलेंडरमध्ये रोज पुन्हा येणारा कार्यक्रम जोडतो, तो तुम्हाला रोज आठवण करून देतो.',rem_time:'या वेळी आठवण द्या',rem_go:'माझ्या कॅलेंडरमध्ये जोडा',rem_how:'डाउनलोड झालेली फाइल उघडा आणि तुमचे कॅलेंडर निवडा. नंतर थांबवायचे असेल तर तो कार्यक्रम तिथून हटवा.',rem_done:'आठवणीची फाइल तयार आहे. कॅलेंडरमध्ये जोडण्यासाठी ती उघडा.',rem_summary:'रोज थोडं लिहा',rem_desc:'UNWRITTEN उघडा आणि काही ओळी लिहा.',f_settings:'सेटिंग्ज',style_btn:'शैली',g_everyday:'रोजचे',g_feelings:'भावना',g_celebrate:'साजरे',g_paperstyle:'कागदाची शैली',see_example:'शब्द हवेत? उदाहरण पाहा',greet_ph:'प्रिय…',sign_ph:'प्रेमाने,',pen_on:'पेन्सिल ॲनिमेशन: चालू',pen_off:'पेन्सिल ॲनिमेशन: बंद',edit_note:'बदला',update_btn:'अपडेट करा',cancel_edit:'रद्द करा',toast_note_updated:'नोट अपडेट केला',pin_title:'तुमचा PIN टाका',pin_forgot:'PIN विसरलात?',pin_wrong:'चुकीचा PIN. पुन्हा प्रयत्न करा.',pin_wait:'खूप प्रयत्न झाले. {n} सेकंद थांबा.',pin_reset:'पुन्हा टॅप करा: हे डिव्हाइस पुसले जाईल आणि PIN निघेल',f_lock:'अ‍ॅप लॉक',lock_title:'अ‍ॅप लॉक',lock_sub:'UNWRITTEN उघडताना 4 अंकी PIN विचारला जाईल. यामुळे इतरांच्या नजरेपासून संरक्षण मिळते. हे एन्क्रिप्शन नाही.',lock_new:'नवीन PIN',lock_again:'PIN पुन्हा टाका',lock_on:'चालू करा',lock_off:'बंद करा',lock_bad:'अगदी 4 अंक वापरा.',lock_mismatch:'दोन्ही PIN जुळत नाहीत.',lock_saved:'अ‍ॅप लॉक चालू आहे',lock_removed:'अ‍ॅप लॉक बंद आहे',quote_btn:'कोट कार्ड',quote_saved:'कोट कार्ड जतन केले. टीप: आधी एक ओळ निवडा.',quote_title:'UNWRITTEN मधील एक ओळ',stamp_ms:'{n} दिवस',f_title:'भविष्यातल्या मला पत्र',f_sub:'वरती पत्र लिहा, एक दिवस निवडा, आणि तो दिवस येईपर्यंत ते बंद राहील.',f_label:'उघडण्याचा दिवस',f_btn:'बंद करा',f_none:'अजून काही बंद केलेले नाही.',f_opened:'उघडले · लिहिले {d}',f_ready:'उघडायला तयार · लिहिले {d}',f_sealed:'बंद · {d} रोजी उघडेल · {n} दिवस बाकी',f_hide:'बंद करा',f_open:'उघडा',f_delete:'हटवा',f_pick:'भविष्यातला दिवस निवडा',f_done:'बंद केले. भेटू {d} रोजी.',f_home_when:'मागच्या तुमचे पत्र',f_home_title:'उघडायला तयार',f_home_go:'उघडा →',stamp_saved:'जतन',stamp_stuck:'चिकटवले',keep_safe:'या डिव्हाइसवर जतन केले. सर्व डिव्हाइसवर सुरक्षित ठेवण्यासाठी साइन इन करा.',saved_ok:'जतन झाले',
     f_privacy:'गोपनीयता',privacy_title:'गोपनीयता, सोप्या शब्दांत',privacy_close:'बंद करा',privacy_link:'गोपनीयता',
     privacy_p1:'तुम्ही साइन इन केले नाही, तर तुम्ही लिहिलेले सर्व याच ब्राउझरमध्ये राहते आणि कुठेही जात नाही.',
     privacy_p2:'साइन इन केल्यास आम्ही तुमचा ईमेल आणि चार गोष्टी ठेवतो: पोस्ट, नोट्स, पत्र आणि लिहिलेले दिवस. आणखी काही नाही. जाहिराती नाहीत, ट्रॅकर्स नाहीत.',
@@ -1121,7 +1121,7 @@ function drawDeco(ctx,t){
     ctx.restore();
   }
 }
-const L0={greet:'Dear ',body:'',sign:'With love,',from:'',date:todayISO(),paper:'cream',lined:true,style:'hand',theme:'none'};
+const L0={greet:'',body:'',sign:'',from:'',date:todayISO(),paper:'cream',lined:true,style:'hand',theme:'none'};
 function cleanLetter(o){
   const r={};
   if(!o||typeof o!=='object')return r;
@@ -1134,16 +1134,18 @@ function cleanLetter(o){
   return r;
 }
 const L=Object.assign({},L0,cleanLetter(parse(store.get(K.letter),{})));
-if(!L.body.trim()&&L.date!==todayISO()){L.date=todayISO();try{localStorage.setItem(K.letter,JSON.stringify(L))}catch(e){}}   /* an unwritten letter shows today's date (saved quietly, so it never counts as a change to sync) */
+if(!L.body.trim()&&!L.from.trim()){                    /* an unwritten letter starts blank and shows today's date (saved quietly, so it never counts as a change to sync) */
+  let ch=false;
+  if(L.greet.trim()==='Dear'&&L.sign.trim()==='With love,'){L.greet='';L.sign='';ch=true}   /* old pre-filled defaults */
+  if(L.date!==todayISO()){L.date=todayISO();ch=true}
+  if(ch){try{localStorage.setItem(K.letter,JSON.stringify(L))}catch(e){}}
+}   /* an unwritten letter shows today's date (saved quietly, so it never counts as a change to sync) */
 const letterText=()=>[L.greet,'',L.body,'',L.sign,L.from].join('\n').trim();
 
 function layoutLetter(preview){
   const st=STYLES[L.style]||STYLES.hand;
   const size=st.pt*300/72,maxW=(210-2*PADX)*MM,fam=`${st.fam}, "Noto Sans Devanagari", sans-serif`;
-  const sample=preview&&!L.body.trim()&&!L.from.trim()&&L.greet.trim()===L0.greet.trim()&&L.sign.trim()===L0.sign.trim();
-  const greet=sample?t('starter_aai_greet','Dear Aai,'):L.greet;
-  const body=sample?t('starter_aai_body'):L.body;
-  const sign=sample?t('starter_aai_sign','With all my love,'):L.sign;
+  const greet=L.greet,body=L.body,sign=L.sign;
   const rows=[];
   const add=(text,kind,bold)=>{mctx.font=`${bold?700:st.w} ${size}px ${fam}`;wrapLines(mctx,text,maxW).forEach(t=>rows.push({t,kind,bold}))};
   rows.push({t:L.date?fmt(L.date):'',kind:'date'});
@@ -1180,8 +1182,8 @@ function renderLetter(){
   $('#sheets').replaceChildren(...pages.map((pg,i)=>h('div',{},
     h('div',{class:'sheetbox'},paperEl(pg,st)),
     pages.length>1?h('p',{class:'pgno'},`Page ${i+1} of ${pages.length}`):null)));
-  const sample=!L.body.trim()&&!L.from.trim()&&L.greet.trim()===L0.greet.trim()&&L.sign.trim()===L0.sign.trim();
-  $('#sheet-caption').textContent=sample?t('starter_preview_caption'):'A4 · '+pages.length+(pages.length===1?' page':' pages')+' · exports at 300 dpi';
+  $('#sheet-caption').textContent='A4 · '+pages.length+(pages.length===1?' page':' pages')+' · exports at 300 dpi';
+  pickLabels();
 }
 let letterQueued=false;
 const queueLetter=()=>{if(letterQueued)return;letterQueued=true;requestAnimationFrame(()=>{letterQueued=false;renderLetter()})};
@@ -1213,28 +1215,62 @@ $('#l-paper').replaceChildren(...Object.entries(PAPERS).map(([k,[name,hex]])=>
   h('label',{class:'sw',title:name},
     h('input',{type:'radio',name:'lpaper',value:k,'aria-label':name,onchange:()=>{L.paper=k;renderLetter()}}),
     h('span',{style:'--c:'+hex}))));
-/* occasion chips: a few main ones, the rest under "More". Choosing one also sets a matching paper colour */
-const MAIN_THEMES=['none','love','birthday','thanks','sorry','missing'];
-let moreThemes=false;
-function renderThemes(){
-  const show=moreThemes?Object.keys(THEMES):MAIN_THEMES.filter(k=>THEMES[k]);
-  $('#l-theme').replaceChildren(
-    ...show.map(k=>{const th=THEMES[k];return h('button',{class:'chip',type:'button','aria-pressed':String(L.theme===k),onclick:()=>{
-      L.theme=k;if(th.paper)L.paper=th.paper;startI=0;renderThemes();renderStarter();renderLetter();
-    }},th.icon+' '+th.name)}),
-    h('button',{class:'chip quiet',type:'button','aria-expanded':String(moreThemes),onclick:()=>{moreThemes=!moreThemes;renderThemes()}},
-      moreThemes?'− '+t('less','Less'):'+ '+t('more_themes','More')));
+/* occasion + style: two quiet buttons, each opens a small frosted window. Choosing a theme also sets a matching paper colour */
+const GROUPS=[['g_everyday','Everyday',['none','thanks','sorry','missing','friendship']],['g_feelings','Feelings',['love','dreamy']],['g_celebrate','Celebrate',['birthday','congrats','festive','diwali']]];
+const PAPER_THEMES=['frame','victorian','rainy'];
+const isPaperTheme=k=>PAPER_THEMES.includes(k);
+function pickLabels(){
+  const th=THEMES[L.theme]||THEMES.none;
+  $('#l-occ-text').textContent=isPaperTheme(L.theme)?t('occasion_label','Occasion'):th.icon+' '+th.name;
+  $('#l-sty-text').textContent=isPaperTheme(L.theme)?th.icon+' '+th.name:'✦ '+t('style_btn','Style');
 }
+function themeChip(k,after){
+  const th=THEMES[k];
+  return h('button',{class:'chip',type:'button','aria-pressed':String(L.theme===k),onclick:()=>{
+    L.theme=k;if(th.paper)L.paper=th.paper;startI=0;renderThemes();renderStarter();renderLetter();after();
+  }},th.icon+' '+th.name);
+}
+function renderThemes(){
+  $('#occ-groups').replaceChildren(...GROUPS.map(([key,en,ids])=>h('div',{class:'pgroup'},
+    h('span',{class:'flabel'},t(key,en)),
+    h('div',{class:'chips'},...ids.filter(k=>THEMES[k]).map(k=>themeChip(k,()=>occ.close()))))));
+  $('#sty-themes').replaceChildren(...PAPER_THEMES.filter(k=>THEMES[k]).map(k=>themeChip(k,()=>{const b=$('#sty-themes [aria-pressed=true]');if(b)b.focus()})));
+  pickLabels();
+}
+/* small helper: open/close a frosted window, Esc and tap-outside close it, Tab stays inside, focus goes back */
+function popup(id,openBtn,closeSel){
+  const dlg=$(id);let back=null;
+  const card=dlg.querySelector('.login-card');
+  const api={
+    open(){back=document.activeElement;renderThemes();dlg.hidden=false;const f=dlg.querySelector('[aria-pressed=true]')||card;f.focus()},
+    close(){if(dlg.hidden)return;dlg.hidden=true;if(back&&back.focus)back.focus()}
+  };
+  openBtn.addEventListener('click',api.open);
+  closeSel.forEach(q=>$(q).addEventListener('click',api.close));
+  dlg.addEventListener('click',e=>{if(e.target===dlg)api.close()});
+  dlg.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){e.stopPropagation();api.close();return}
+    if(e.key!=='Tab')return;
+    const f=[...dlg.querySelectorAll('button,input,select,[tabindex="0"]')].filter(x=>!x.disabled&&x.offsetParent!==null);
+    if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&(document.activeElement===first||document.activeElement===card)){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  });
+  return api;
+}
+const occ=popup('#occasion',$('#l-occ'),['#occ-close']);
+const sty=popup('#lstyle',$('#l-sty'),['#sty-close','#sty-done']);
 const LIDS={greet:'#l-greet',body:'#l-body',sign:'#l-sign',from:'#l-from',date:'#l-date',style:'#l-style'};
 function syncLetterInputs(){
   for(const[k,sel]of Object.entries(LIDS))$(sel).value=L[k];
   $('#l-lines').checked=!!L.lined;
-  if(!MAIN_THEMES.includes(L.theme))moreThemes=true;   /* keep a chosen extra occasion visible */
   renderThemes();renderStarter();letterCount();
 }
 function letterCount(){
   const n=(L.body.trim().match(/\S+/g)||[]).length;
   $('#l-count').textContent=n?n+' '+t(n===1?'word':'words')+' · '+t('saved_ok','saved'):'';
+  $('#l-example').hidden=!!L.body.trim();                 /* only offered while the page is still blank */
 }
 for(const[k,sel]of Object.entries(LIDS))$(sel).addEventListener('input',e=>{
   L[k]=e.target.value;
@@ -1242,6 +1278,12 @@ for(const[k,sel]of Object.entries(LIDS))$(sel).addEventListener('input',e=>{
   renderLetter();if(k==='body')letterCount();
 });
 $('#l-lines').addEventListener('change',e=>{L.lined=e.target.checked;renderLetter()});
+$('#l-example').addEventListener('click',()=>{            /* an example only when asked for, and only onto a blank page */
+  if(L.body.trim())return;
+  L.greet=t('starter_aai_greet','Dear Aai,');L.body=t('starter_aai_body');L.sign=t('starter_aai_sign','With all my love,');
+  syncLetterInputs();renderLetter();
+  const ta=$('#l-body');ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length);
+});
 
 /* the PNG: same layout, drawn at 300 dpi */
 function drawLetterPage(rows){
@@ -1360,7 +1402,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!moreMenu.hidden){s
 addEventListener('hashchange',()=>setMore(false));
 armed($('#l-new'),t('clear_letter_confirm','Tap again to clear'),()=>{
   setMore(false);
-  Object.assign(L,{greet:'Dear ',body:'',sign:'With love,',from:'',date:todayISO()});
+  Object.assign(L,{greet:'',body:'',sign:'',from:'',date:todayISO()});
   syncLetterInputs();renderLetter();$('#l-body').focus();toast(t('toast_fresh_ready','Fresh page ready'));
 });
 
@@ -1541,6 +1583,14 @@ addEventListener('appinstalled',()=>{$('#f-install').hidden=true});
     clearTimeout(idle);idle=setTimeout(()=>{clearInterval(timer);timer=null;draw(false)},1100);
   };
   document.addEventListener('input',typing);
+  /* phones: when the keyboard opens, lift the pencil so it sits just above it instead of hiding behind it */
+  const vv=window.visualViewport,root=document.documentElement;
+  function lift(){
+    if(!vv)return;
+    const kb=Math.max(0,Math.round(innerHeight-vv.height-vv.offsetTop));
+    root.style.setProperty('--kb',kb+'px');root.classList.toggle('kb',kb>120);
+  }
+  if(vv){vv.addEventListener('resize',lift);vv.addEventListener('scroll',lift);lift()}
   const off=()=>{try{return localStorage.getItem('liha.pen')==='off'}catch(e){return false}};
   const apply=()=>document.documentElement.classList.toggle('pen-off',off());
   apply();draw(false);

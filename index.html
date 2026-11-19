@@ -181,33 +181,23 @@
 
       <div class="letter-grid">
         <form class="card stack" id="letter-form" onsubmit="return false">
-          <div class="field"><span class="flabel" id="l-theme-label" data-i18n="occasion_label">Occasion</span><div class="chips" id="l-theme" role="group" aria-labelledby="l-theme-label"></div></div>
+          <div class="pickrow">
+            <button class="pickbtn" type="button" id="l-occ" aria-haspopup="dialog"><span id="l-occ-text">📄 Plain</span><i aria-hidden="true">▾</i></button>
+            <button class="pickbtn" type="button" id="l-sty" aria-haspopup="dialog"><span id="l-sty-text">✦ Style</span><i aria-hidden="true">▾</i></button>
+          </div>
           <div class="starter">
             <span aria-hidden="true">💡</span>
             <button class="chip" type="button" id="starter-btn"></button>
             <button class="mini" type="button" id="starter-next" data-i18n-aria="starter_next" aria-label="Another start">↻</button>
           </div>
-          <div class="field"><label for="l-greet" data-i18n="greet_label">To</label><input id="l-greet" type="text" maxlength="60" autocomplete="off"></div>
+          <div class="field"><label for="l-greet" data-i18n="greet_label">To</label><input id="l-greet" type="text" maxlength="60" autocomplete="off" placeholder="Dear…" data-i18n-ph="greet_ph"></div>
           <p class="howto" data-i18n="how_letter" data-i18n-html><b>Normal:</b> pick your paper and vibe, then print. <b>Zen:</b> just you and the page. Zero noise.</p>
           <div class="field"><label for="l-body" data-i18n="letter_body_label">Your letter</label><textarea id="l-body" rows="8" maxlength="8000" placeholder="Start with what you really want to say." data-i18n-ph="letter_placeholder"></textarea></div>
-          <p class="note-small" id="l-count" aria-live="off"></p>
+          <div class="countrow"><p class="note-small" id="l-count" aria-live="off"></p><button class="uplink" type="button" id="l-example" data-i18n="see_example">Need words? See an example</button></div>
           <div class="two">
-            <div class="field"><label for="l-sign" data-i18n="sign_label">Sign-off</label><input id="l-sign" type="text" maxlength="40" autocomplete="off"></div>
+            <div class="field"><label for="l-sign" data-i18n="sign_label">Sign-off</label><input id="l-sign" type="text" maxlength="40" autocomplete="off" placeholder="With love," data-i18n-ph="sign_ph"></div>
             <div class="field"><label for="l-from" data-i18n="from_label">Your name</label><input id="l-from" type="text" maxlength="40" autocomplete="off"></div>
           </div>
-          <details class="opts">
-            <summary data-i18n="page_options">Page options</summary>
-            <div class="stack">
-              <div class="field"><span class="flabel" id="l-paper-label" data-i18n="paper_label">Paper</span><div class="swatches paper-swatches" id="l-paper" role="radiogroup" aria-labelledby="l-paper-label"></div></div>
-              <div class="two">
-                <div class="field"><label for="l-style" data-i18n="style_label">Writing style</label>
-                  <select id="l-style"><option value="hand" data-i18n="style_hand">Handwritten look</option><option value="typed" data-i18n="style_typed">Clean print</option></select>
-                </div>
-                <div class="field"><label for="l-date" data-i18n="date_label">Date</label><input id="l-date" type="date"></div>
-              </div>
-              <label class="checkline"><input type="checkbox" id="l-lines"> <span data-i18n="ruled_lines">Ruled lines</span></label>
-            </div>
-          </details>
         </form>
 
         <div>
@@ -375,6 +365,32 @@
     <input class="pin-input" id="pin-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="PIN">
     <p class="login-err" id="pin-err" role="alert"></p>
     <button class="uplink" type="button" id="pin-forgot" data-i18n="pin_forgot">Forgot PIN?</button>
+  </section>
+</div>
+
+<div class="login" id="occasion" role="dialog" aria-modal="true" aria-labelledby="occ-title" hidden>
+  <section class="login-card card stack" tabindex="-1">
+    <div class="profile-top"><span class="login-brand">UNWRITTEN</span><button class="mini" id="occ-close" type="button" aria-label="Close">&times;</button></div>
+    <h2 class="form-title" id="occ-title" data-i18n="occasion_label">Occasion</h2>
+    <div class="pick-groups" id="occ-groups"></div>
+  </section>
+</div>
+<div class="login" id="lstyle" role="dialog" aria-modal="true" aria-labelledby="sty-title" hidden>
+  <section class="login-card card stack" tabindex="-1">
+    <div class="profile-top"><span class="login-brand">UNWRITTEN</span><button class="mini" id="sty-close" type="button" aria-label="Close">&times;</button></div>
+    <h2 class="form-title" id="sty-title" data-i18n="style_btn">Style</h2>
+    <div class="pick-groups">
+      <div class="pgroup"><span class="flabel" data-i18n="g_paperstyle">Paper style</span><div class="chips" id="sty-themes"></div></div>
+              <div class="field"><span class="flabel" id="l-paper-label" data-i18n="paper_label">Paper</span><div class="swatches paper-swatches" id="l-paper" role="radiogroup" aria-labelledby="l-paper-label"></div></div>
+      <div class="two">
+        <div class="field"><label for="l-style" data-i18n="style_label">Writing style</label>
+          <select id="l-style"><option value="hand" data-i18n="style_hand">Handwritten look</option><option value="typed" data-i18n="style_typed">Clean print</option></select>
+        </div>
+        <div class="field"><label for="l-date" data-i18n="date_label">Date</label><input id="l-date" type="date"></div>
+      </div>
+      <label class="checkline"><input type="checkbox" id="l-lines"> <span data-i18n="ruled_lines">Ruled lines</span></label>
+    </div>
+    <button class="btn" type="button" id="sty-done" data-i18n="zen_done">Done</button>
   </section>
 </div>
 
