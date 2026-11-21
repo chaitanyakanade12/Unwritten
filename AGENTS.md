@@ -1,4 +1,4 @@
-# AGENTS.md: Project brief for "Liha" (read this fully before changing anything)
+# AGENTS.md: Project brief for UNWRITTEN (formerly "Liha") (read this fully before changing anything)
 
 You are joining an existing, working, tested project. Do not rebuild it. Understand it, then make small, careful changes that respect the rules below. If a request conflicts with a rule here, say so and ask before proceeding.
 
@@ -16,7 +16,7 @@ You are joining an existing, working, tested project. Do not rebuild it. Underst
 
 **Goal behind the project:** revive a culture of writing (blogs, letters, short notes) in an era of scrolling. Audience: **Gen Z, millennials and kids**. It must feel playful, safe and inviting, never corporate.
 
-**Owner:** Chaitanya, a second-year Electronics & Telecommunication Engineering student (Sangli-Miraj area, Maharashtra). He edits the files himself in VS Code/Antigravity with Live Server. He prefers **concise, simple, minimal-complexity code** and explanations that get simpler, not more complicated. Prefer clarity over cleverness. Explain what you changed in plain words.
+**Owner:** an independent student creator (kept anonymous on purpose; do not add names, college or location to the site, docs or code). They edit the files themselves in VS Code with Live Server. They prefer **concise, simple, minimal-complexity code** and explanations that get simpler, not more complicated. Prefer clarity over cleverness. Explain what you changed in plain words.
 
 **Name:** still undecided. Candidates he liked: "Zen Liha", "Nivant" (निवांत, "at ease"), "Zen Nivant", "Maun Ink". Keep **Liha** until he chooses.
 
